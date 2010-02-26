@@ -2,17 +2,10 @@
 -- Author: Luke Perkin
 -- Date: 2010-02-26
 
-function ANIM_LINEAR( t, b, c, d )
-	return b + c*t/d
-end
-
-function ANIM_QUAD_INOUT( t, b, c, d )
-	local p = t/(d/2)
-	if p < 1 then return c/2*p*p + b end
-	return -c/2 * ((p-1)*(p-3)-1) + b
-end
-
 goo.animation = class('goo animation', StatefulObject)
+
+require 'goo.animation.style'
+
 goo.animation.list = {}
 goo.animation.lastTime = 0
 function goo.animation:initialize(arg)
@@ -26,6 +19,8 @@ function goo.animation:initialize(arg)
 	self.relative = arg.relative or false
 	self.current = self.start
 	self.startTime = nil
+	self.style = arg.style or ANIM_LINEAR
+	self.stylevars = arg.stylevars or {}
 	self:gotoState('pause')
 end
 function goo.animation:update(dt)
@@ -64,7 +59,7 @@ function play:update(dt)
 	local _timeElapsed = love.timer.getMicroTime() - self.startTime
 	
 	if _timeElapsed < self.time then
-		self.current = ANIM_QUAD_INOUT( _timeElapsed, self.start, self.finish - self.start, self.time )
+		self.current = self.style( _timeElapsed, self.start, self.finish - self.start, self.time, unpack(self.stylevars) )
 		self.table[self.key] = self.current
 	else
 		self:gotoState('finished')

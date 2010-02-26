@@ -6,7 +6,7 @@
 goo = {}
 require 'MiddleClass'
 require 'MindState'
-require 'goo.animation'
+require 'goo.animation.animation'
 
 goo.object = class('goo object')
 goo.objects = {}
@@ -36,7 +36,7 @@ function goo.object:update(dt)
 	else
 		if self.dragState then
 			self.dragState = false
-			self:recurse('children',self.updateBounds)
+			self:recurse('children',goo.object.updateBounds)
 		end
 	end
 end
@@ -102,7 +102,8 @@ function goo.object:updateBoundsRecursive()
 	end
 end
 function goo.object:recurse(key,func,...)
-	func(...)
+	local _tbl = arg or {}
+	func(self, unpack(_tbl))
 	for k,v in pairs(self[key]) do
 		v:recurse(key,func,...)
 	end

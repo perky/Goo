@@ -34,25 +34,24 @@ function love.load()
 	button:sizeToContents()
 
 	local anim = goo.animation
-	local moveAnim1 = anim:moveTo(button, 200, 200, 5)
-	local moveAnim1b = anim:new{
-		table = button.textColor,
-		key		= 1,
-		finish	= 0,
-		start   = 255
-	}
-	local moveAnim2 = anim:moveTo(button, 400, 200, 3)
-	local moveAnim3 = anim:new{
-		table = button,
+	local a1 = anim:new{
+		table	= button,
 		key		= 'x',
-		finish  = 250
+		finish	= 300,
+		time	= 4,
+		style	= anim.style.elastic,
+		stylevars = {0.02,2}
 	}
-	--local group = anim.group:new(moveAnim1, moveAnim1b)
-	local chain = anim.chain:new(moveAnim1, moveAnim2, moveAnim3)
-	chain:reverse()
-	chain:play()
-	--moveAnim1:reverse()
-	--moveAnim1:play()
+	local a2 = anim:new{
+		table	= button,
+		key		= 'y',
+		finish	= 100,
+		time	= 3,
+		style	= anim.style.elastic,
+		stylevars = {0.02,2}
+	}
+	a1:play()
+	a2:play()
 	
 end
 
