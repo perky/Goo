@@ -5,6 +5,7 @@
 -- Initialization
 require 'MiddleClass'
 require 'MindState'
+require 'goo.animation'
 
 goo = {}
 
@@ -30,6 +31,14 @@ function goo.object:update(dt)
 	else
 		if self.hoverState then self:exitHover() end
 		self.hoverState = false
+	end
+	
+	if love.mouse.isDown('l') then
+	else
+		if self.dragState then
+			self.dragState = false
+			self:recurse('children',self.updateBounds)
+		end
 	end
 end
 function goo.object:mousepressed()
@@ -87,6 +96,18 @@ function goo.object:updateBounds()
 	self.bounds.x2 = x + self.w
 	self.bounds.y2 = y + self.h
 end
+function goo.object:updateBoundsRecursive()
+	self:updateBounds()
+	for k,v in pairs(self.children) do
+		v:updateBoundsRecursive()
+	end
+end
+function goo.object:recurse(key,func,...)
+	func(...)
+	for k,v in pairs(self[key]) do
+		v:recurse(key,func,...)
+	end
+end
 function goo.object:destroy()
 	for k,v in pairs( goo.objects ) do
 		if v == self then
@@ -96,6 +117,7 @@ function goo.object:destroy()
 		end
 	end
 end
+
 -- PANEL
 goo.panel = class('goo panel', goo.object)
 function goo.panel:initialize()
@@ -105,9 +127,11 @@ function goo.panel:initialize()
 	self.dragState = false
 end
 function goo.panel:update(dt)
+	super.update(self,dt)
 	if self.dragState then
 		self.x = love.mouse.getX() - self.dragOffsetX
 		self.y = love.mouse.getY() - self.dragOffsetY
+		self:updateBounds()
 	end
 end
 function goo.panel:draw()
@@ -127,7 +151,6 @@ function goo.panel:mousepressed(x,y,button)
 	end
 end
 function goo.panel:mousereleased(x,y,button)
-	self.dragState = false
 end
 function goo.panel:setTitle( title )
 	self.title = title
@@ -151,6 +174,7 @@ function goo.panel:destroy()
 	end
 	super.destroy(self)
 end
+
 -- STATIC TEXT
 goo.text = class('goo static text', goo.object)
 function goo.text:initialize( parent )
@@ -167,6 +191,7 @@ end
 function goo.text:setText( text )
 	self.text = text or ""
 end
+
 -- CLOSE BUTTON
 goo.close = class('goo close button', goo.object)
 function goo.close:initialize( parent )
@@ -185,7 +210,7 @@ function goo.close:draw()
 	love.graphics.setColor( unpack(self.color) )
 	love.graphics.print('x', x, y)
 end
-function goo.close:mousereleased(x,y,button)
+function goo.close:mousepressed(x,y,button)
 	if button == 'l' then self.parent:destroy() end
 end
 function goo.close:updateBounds()
@@ -195,12 +220,15 @@ function goo.close:updateBounds()
 	self.bounds.x2 = x+10
 	self.bounds.y2 = y
 end
+
 -- BUTTON
 goo.button = class('goo button', goo.object)
 function goo.button:initialize( parent )
 	super.initialize(self)
-	table.insert(parent.children,self)
-	self.parent = parent
+	if parent then
+		table.insert(parent.children,self)
+		self.parent = parent
+	end
 	self.text = "button"
 	self.borderStyle = 'line'
 	self.backgroundColor = {0,0,0,255}
@@ -234,6 +262,7 @@ function goo.button:sizeToContents()
 	self:updateBounds()
 end
 function goo.button:mousepressed(x,y,button)
+	if self.onClick then self:onClick(button) end
 end
 goo.button:getterSetter('backgroundColor')
 goo.button:getterSetter('borderColor')
@@ -241,7 +270,7 @@ goo.button:getterSetter('textColor')
 
 function goo.load()
 	goo.graphics = {}
-	goo.graphics.roundrect = require 'goolib/parts/roundrect'
+	goo.graphics.roundrect = require 'goo.graphics.rectangle'
 end
 
 -- Logic
@@ -274,6 +303,7 @@ end
 function goo.mousepressed( x, y, button )
 	for i=#goo.objects, 1, -1 do
 		local v = goo.objects[i]
+		if not v then return false end
 		if v.visible and v.hoverState then 
 			v:mousepressed(x, y, button)
 			print(tostring(v.class))
@@ -285,7 +315,8 @@ end
 function goo.mousereleased( x, y, button )
 	for i=#goo.objects, 1, -1 do
 		local v = goo.objects[i]
-		if v.visible and v:isMouseHover() then 
+		if not v then return false end
+		if v.visible and v.hoverState then 
 			v:mousereleased(x, y, button)
 			break
 		end

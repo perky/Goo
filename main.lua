@@ -4,7 +4,7 @@
 
 -- Initialization
 log = require 'scrlog'
-require 'Goolib/goo'
+require 'goo.goo'
 require 'MiddleClass'
 require 'MindState'
 love.graphics.setFont('oldsansblack.ttf')
@@ -24,6 +24,32 @@ function love.load()
 	btn:setPos( 20, 60)
 	btn:sizeToContents()
 	btn:setBorderColor({255,255,25,255})
+	function btn:onClick( button )
+		self:setBorderColor({0,255,0,255})
+	end
+	
+	button = goo.button:new()
+	btn:setPos( 100, 300 )
+	
+	local anim = goo.animation
+	dropButton = anim:new{
+			table  = button,
+			value  = 'y',
+			start  = button.y - 100,
+			finish = button.y,
+			time   = 2
+	}
+	dropButton2 = anim:new{
+			table  = button.color,
+			value  = 4,
+			start  = 0,
+			finish = 255,
+			time   = 2
+	}
+	local dropButtonAnimation = anim.group(dropButton,dropButton2)
+	--dropButtonAnimation:play()
+	dropButton:play()
+	dropButton2:play()
 end
 
 -- Logic
