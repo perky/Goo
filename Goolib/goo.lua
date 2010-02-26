@@ -102,6 +102,13 @@ function goo.panel:initialize()
 	super.initialize(self)
 	self.title = "title"
 	self.close = goo.close:new(self)
+	self.dragState = false
+end
+function goo.panel:update(dt)
+	if self.dragState then
+		self.x = love.mouse.getX() - self.dragOffsetX
+		self.y = love.mouse.getY() - self.dragOffsetY
+	end
 end
 function goo.panel:draw()
 	love.graphics.setColor(80,80,80,255)
@@ -111,7 +118,16 @@ function goo.panel:draw()
 	love.graphics.line( self.x, self.y + 20, self.x + self.w, self.y + 20)
 end
 function goo.panel:mousepressed(x,y,button)
-	print('panel clicked')
+	if x > self.bounds.x1 and x < self.bounds.x2 and y > self.bounds.y1 and y < self.bounds.y1+15 then
+		if not self.dragState then
+			self.dragOffsetX = x - self.x
+			self.dragOffsetY = y - self.y
+		end
+		self.dragState = true
+	end
+end
+function goo.panel:mousereleased(x,y,button)
+	self.dragState = false
 end
 function goo.panel:setTitle( title )
 	self.title = title
@@ -170,8 +186,7 @@ function goo.close:draw()
 	love.graphics.print('x', x, y)
 end
 function goo.close:mousereleased(x,y,button)
-	print("click")
-	self.parent:destroy()
+	if button == 'l' then self.parent:destroy() end
 end
 function goo.close:updateBounds()
 	local x, y = self:getRelativePos()
@@ -180,16 +195,49 @@ function goo.close:updateBounds()
 	self.bounds.x2 = x+10
 	self.bounds.y2 = y
 end
-
-testPanel = goo.panel:new()
-testPanel:setPos( 50, 50 )
-testPanel:setSize( 200, 100 )
-testPanel:setTitle( "This is a test panel." )
-
-testText = goo.text:new( testPanel )
-testText:setPos( 20, 40 )
-testText:setText( 'hello' )
-
+-- BUTTON
+goo.button = class('goo button', goo.object)
+function goo.button:initialize( parent )
+	super.initialize(self)
+	table.insert(parent.children,self)
+	self.parent = parent
+	self.text = "button"
+	self.borderStyle = 'line'
+	self.backgroundColor = {0,0,0,255}
+	self.borderColor = {255,255,255,255}
+	self.textColor = {255,255,255,255}
+	self.spacing = 5
+end
+function goo.button:draw()
+	local x, y = self:getRelativePos()
+	love.graphics.setColor( unpack(self.backgroundColor) )
+	love.graphics.rectangle( 'fill', x-2, y, self.w, self.h)
+	love.graphics.setColor( unpack(self.borderColor) )
+	love.graphics.rectangle( 'line', x-2, y, self.w, self.h)
+	love.graphics.setColor( unpack(self.textColor) )
+	love.graphics.print( self.text, x, y+self.h-self.spacing)
+end
+function goo.button:enterHover()
+	self.backgroundColor = {0,200,50,255}
+end
+function goo.button:exitHover()
+	self.backgroundColor = {0,0,0,255}
+end
+function goo.button:setText( text )
+	self.text = text
+	self:updateBounds()
+end
+function goo.button:sizeToContents()
+	local _font = love.graphics.getFont()
+	self.w = _font:getWidth(self.text) + self.spacing
+	self.h = _font:getHeight() + self.spacing
+	self:updateBounds()
+end
+function goo.button:mousepressed(x,y,button)
+end
+goo.button:getterSetter('backgroundColor')
+goo.button:getterSetter('borderColor')
+goo.button:getterSetter('textColor')
 
 function goo.load()
 	goo.graphics = {}
@@ -224,30 +272,22 @@ function goo.keyreleased( key, unicode )
 end
 
 function goo.mousepressed( x, y, button )
-	for k,v in ipairs_back( goo.objects ) do
-		if v.visible and v:isMouseHover() then 
+	for i=#goo.objects, 1, -1 do
+		local v = goo.objects[i]
+		if v.visible and v.hoverState then 
 			v:mousepressed(x, y, button)
+			print(tostring(v.class))
 			break
 		end
 	end
 end
 
 function goo.mousereleased( x, y, button )
-	for k,v in ipairs_back( goo.objects ) do
+	for i=#goo.objects, 1, -1 do
+		local v = goo.objects[i]
 		if v.visible and v:isMouseHover() then 
 			v:mousereleased(x, y, button)
 			break
 		end
-	end
-end
-
-function ipairs_back(a)
-	return ipairs_back_iter, a, #a
-end
-function ipairs_back_iter(a,i)
-	i = i - 1
-	local v = a[i]
-	if v then
-		return i, v
 	end
 end

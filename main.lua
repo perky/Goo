@@ -7,10 +7,23 @@ log = require 'scrlog'
 require 'Goolib/goo'
 require 'MiddleClass'
 require 'MindState'
-
+love.graphics.setFont('oldsansblack.ttf')
 
 function love.load()
 	goo.load()
+	testPanel = goo.panel:new()
+	testPanel:setPos( 50, 50 )
+	testPanel:setSize( 200, 100 )
+	testPanel:setTitle( "This is a test panel." )
+
+	testText = goo.text:new( testPanel )
+	testText:setPos( 20, 40 )
+	testText:setText( 'hello' )
+
+	btn = goo.button:new( testPanel )
+	btn:setPos( 20, 60)
+	btn:sizeToContents()
+	btn:setBorderColor({255,255,25,255})
 end
 
 -- Logic
