@@ -3,11 +3,10 @@
 -- Date: 2010-02-25
 
 -- Initialization
+goo = {}
 require 'MiddleClass'
 require 'MindState'
 require 'goo.animation'
-
-goo = {}
 
 goo.object = class('goo object')
 goo.objects = {}
@@ -270,13 +269,17 @@ goo.button:getterSetter('textColor')
 
 function goo.load()
 	goo.graphics = {}
-	goo.graphics.roundrect = require 'goo.graphics.rectangle'
+	goo.graphics.roundrect = require 'goo.graphics.roundrect'
 end
 
 -- Logic
 function goo.update(dt)
 	for k,v in ipairs( goo.objects ) do
 		if v.visible then v:update(dt) end
+	end
+	
+	for k,v in ipairs( goo.animation.list ) do
+		v:update(dt)
 	end
 end
 

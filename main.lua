@@ -29,27 +29,31 @@ function love.load()
 	end
 	
 	button = goo.button:new()
-	btn:setPos( 100, 300 )
-	
+	button:setPos( 100, 300 )
+	button:setText('blah')
+	button:sizeToContents()
+
 	local anim = goo.animation
-	dropButton = anim:new{
-			table  = button,
-			value  = 'y',
-			start  = button.y - 100,
-			finish = button.y,
-			time   = 2
+	local moveAnim1 = anim:moveTo(button, 200, 200, 5)
+	local moveAnim1b = anim:new{
+		table = button.textColor,
+		key		= 1,
+		finish	= 0,
+		start   = 255
 	}
-	dropButton2 = anim:new{
-			table  = button.color,
-			value  = 4,
-			start  = 0,
-			finish = 255,
-			time   = 2
+	local moveAnim2 = anim:moveTo(button, 400, 200, 3)
+	local moveAnim3 = anim:new{
+		table = button,
+		key		= 'x',
+		finish  = 250
 	}
-	local dropButtonAnimation = anim.group(dropButton,dropButton2)
-	--dropButtonAnimation:play()
-	dropButton:play()
-	dropButton2:play()
+	--local group = anim.group:new(moveAnim1, moveAnim1b)
+	local chain = anim.chain:new(moveAnim1, moveAnim2, moveAnim3)
+	chain:reverse()
+	chain:play()
+	--moveAnim1:reverse()
+	--moveAnim1:play()
+	
 end
 
 -- Logic
@@ -66,6 +70,13 @@ end
 -- Input
 function love.keypressed( key, unicode )
 	goo.keypressed( key, unicode )
+	if key == 'a' then
+		chainAnimation:pause()
+		print(chainAnimation:getState())
+	end
+	if key == 's' then
+		chainAnimation:play()
+	end
 end
 
 function love.keyreleased( key, unicode )
