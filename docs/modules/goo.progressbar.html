@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Module goo.progressbar</title>
+    <link rel="stylesheet" href="../luadoc.css" type="text/css" />
+	<!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>Goo</h1>
+<ul>
+	
+	<li><a href="../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+<h1>Modules</h1>
+<ul>
+
+	<li>
+		<a href="../modules/anim.html">anim</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.html">goo</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.button.html">goo.button</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.checkbox.html">goo.checkbox</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.colorpick.html">goo.colorpick</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.image.html">goo.image</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.null.html">goo.null</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.object.html">goo.object</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.panel.html">goo.panel</a>
+	</li>
+
+	<li><strong>goo.progressbar</strong></li>
+	
+	<li>
+		<a href="../modules/goo.text.html">goo.text</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.textinput.html">goo.textinput</a>
+	</li>
+
+</ul>
+
+
+
+<!-- File list -->
+
+
+
+
+
+
+</div><!-- id="navigation" -->
+
+<div id="content">
+
+<h1>Module <code>goo.progressbar</code></h1>
+
+<p>Progress bar useful giving users feedback on loading or game status such as health, magic etc.</p>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.progressbar:draw">goo.progressbar:draw</a>&nbsp;()</td>
+	<td class="summary">Internal function to draw the progress bar, you may wish to override however.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.progressbar:getPercentage">goo.progressbar:getPercentage</a>&nbsp;()</td>
+	<td class="summary">Returns the current percentage of progress.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.progressbar:getProgress">goo.progressbar:getProgress</a>&nbsp;()</td>
+	<td class="summary">Returns the current progress value.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.progressbar:incrementProgress">goo.progressbar:incrementProgress</a>&nbsp;()</td>
+	<td class="summary">Increments the progress by 1 </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.progressbar:setPercentage">goo.progressbar:setPercentage</a>&nbsp;(percentage)</td>
+	<td class="summary">Sets the width of the progress bar to the specified percentage, i.e.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.progressbar:setProgress">goo.progressbar:setProgress</a>&nbsp;(progress)</td>
+	<td class="summary">Sets the progress value, should be a number within the range you defined.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.progressbar:setRange">goo.progressbar:setRange</a>&nbsp;(min, max)</td>
+	<td class="summary">Sets the range of the progress bar, i.e.</td>
+	</tr>
+
+</table>
+
+
+
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="goo.progressbar:draw"></a><span>goo.progressbar:</span><strong>draw</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Internal function to draw the progress bar, you may wish to override however.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.progressbar:getPercentage"></a><span>goo.progressbar:</span><strong>getPercentage</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Returns the current percentage of progress.</p>
+
+
+
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">number: percentage of progress (0-100%).</p>
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.progressbar:getProgress"></a><span>goo.progressbar:</span><strong>getProgress</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Returns the current progress value.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.progressbar:incrementProgress"></a><span>goo.progressbar:</span><strong>incrementProgress</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Increments the progress by 1</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.progressbar:setPercentage"></a><span>goo.progressbar:</span><strong>setPercentage</strong>&nbsp;( percentage )</dt>
+<dd>
+<p class="func_description">Sets the width of the progress bar to the specified percentage, i.e. 50% is half the width.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>percentage</b> <i><small>:number</small></i><br/>a percentage value to set the width of the progress bar (0-100%).
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.progressbar:setProgress"></a><span>goo.progressbar:</span><strong>setProgress</strong>&nbsp;( progress )</dt>
+<dd>
+<p class="func_description">Sets the progress value, should be a number within the range you defined.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>progress</b> <i><small>:number</small></i><br/>a number between the range you defined
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="">
+		goo.progressbar:setRange
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo.progressbar:setRange"></a><span>goo.progressbar:</span><strong>setRange</strong>&nbsp;( min, max )</dt>
+<dd>
+<p class="func_description">Sets the range of the progress bar, i.e. if you're downloading a file 1024 bytes in size you would set the range to min = 0, max = 1024</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>min</b> <i><small>:number</small></i><br/>the minimum value the progress bar will reperesent at 0% width.
+	</li>
+	
+	
+	
+	<li>
+	  <b>max</b> <i><small>:number</small></i><br/>the maximum value the progress bar will reperesent at 100% width.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">number: the range of the value ( max - min ).</p>
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>

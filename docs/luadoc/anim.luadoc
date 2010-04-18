@@ -1,0 +1,201 @@
+--[[ Animation library.
+	<br/>This library gives you functions to animate a variable from one value to another.
+	<br/>You can group and chain multiple animations, for instance grouping two animations that
+	<br/>animate the x and y positions of an object.
+	<br/>How anim interpolates between the two values are set by animation styles such as linear, quadIn etc.
+	<br/>To load do the following.
+	<pre class="example">
+		anim = require 'anim/anim'<br/>
+		function love.update(dt)<br/>
+		anim:update(dt)<br/>
+		end
+	</pre>
+	@release 2010-02-26 Version 1
+]]
+module 'anim'
+
+--[[ An animation table
+ @class table
+ @name anim_table
+ @field table The table to pass to the anim object
+ @field key The key to animate. (table[key] will be animated).
+ @field start The value the animation starts at. (if nil current table[key] value will be used).
+ @field finish The value the animation finishes at. (if nil current table[key] value will be used).
+ @field time The time it takes for the animation to complete. (in seconds, default 1).
+ @field delay The time it takes for the animation to start after calling anim:play(). (in seconds, default 0).
+ @field style The style of the animation. (a string, default 'linear'). <a href='#styles'>See style</a>.
+ @field styleargs Some styles such as 'elastic' can take extra parameters in the form of a table {arg1,arg2}.
+ @see styles
+]]
+
+--[[ List of animation styles you can use.
+ @class table
+ @name styles
+ @field linear
+ @field quartIn
+ @field quartOut 
+ @field quartInOut 
+ @field quadIn 
+ @field quadOut
+ @field quadInOut 
+ @field expoIn 
+ @field expoOut
+ @field expoInOut   
+ @field elastic
+]]
+
+--[[ Create a new animation instance.
+ @name anim:new
+ @class function
+ @param anim_table A table of animation paremeters.
+ @return table: An animation instance you can call anim methods on.
+ @see anim_table, Sliding text
+ @usage <pre class="example">
+	new_animation = anim:new{
+		table = myTable,
+		key   = 'x_position',
+		start = 12,
+		finish = 120,
+		time  = 4,
+		style = 'linear'
+	}
+ </pre>
+]]
+
+--[[ Updates all animations, use inside love.update().
+	@param dt:number delta time
+]]
+function anim:update(dt)
+
+--[[ Plays or resumes the animation ]]
+function anim:play()
+
+--[[ Reverse the animation. ]]
+function anim:reverse()
+
+--[[ Pause the animation. ]]
+function anim:pause()
+
+--[[ Finish the animation. (Instantaneus) ]]
+function anim:finish()
+
+--[[ Callback function when the animation is finished.
+ @usage <pre class="example">
+	new_anim = anim:new( anim_table )
+	function new_anim:onFinish()
+		print('animation finished')
+	end
+ </pre>
+]]
+function anim:onFinish()
+
+--[[ Callback function when anim:play() is called
+ @see anim:onFinish
+]]
+function anim:onPlay()
+
+--[[ Callback function when anim:pause() is called
+ @see anim:onFinish
+]]
+function anim:onPause()
+
+--[[ Convenience function for anim:new(). Creates an animation instance.
+	<br/>The animation will automatically play.
+ @param table:table The table holding the value you wish to animate.
+ @param key:string The key's value you wish to animate.
+ @param start:number The starting value.
+ @param finish:number The finishing value.
+ @param time:number The time it takes for the animation to complete. (In seconds)
+ @param style:string The style of the animation.
+ @return table: An animation instance.
+ @see styles, anim_table, anim:new
+]]
+function anim:easy( table, key, start, finish, time, style )
+
+--[[ Animates an object from it's current position to another.
+	<br/>The object must have x and y keys!
+	<br/>The animation will automatically play.
+ @param object:table An object with 'x' and 'y' keys.
+ @param x:number The target x position.
+ @param y:number The target y position.
+ @param time:number The time it takes for the animation to complete. (In seconds)
+ @param style:string The style of the animation.
+ @param delay:number The time it waits before starting the animation. (In seconds)
+ @return table: An animation instance.
+ @see anim_table, styles
+]]
+function anim:moveTo( object, x, y, time, style, delay )
+
+--[[ Animate text to slide in from offscreen.
+	@name Sliding text
+	@class example
+	@usage Here's how:
+	<pre class="example">
+	anim = require 'anim/anim'
+	
+	function love.load()
+		text = { x = -100, str = 'Woo!' }
+		new_anim = anim:new{
+			table = text,
+			key   = 'x',
+			start = -100
+			finish = 100,
+			time = 2,
+			style = 'quadInOut'
+		}
+		new_anim:play()
+	end
+	
+	function love.update(dt)
+		anim:update(dt)
+	end
+	
+	function love.draw()
+		love.graphics.print(text.str, text.x, 100)
+	end
+	</pre>
+]]
+
+
+--------------- anim.group
+
+--[[ Creates an animation group which can hold individual animations.
+	@param ... multiple animations to group.
+	@return table: an animation group.
+]]
+function anim.group:new( ... )
+
+--[[ Plays/resumes all the animations in the group together ]]
+function anim.group:play()
+
+--[[ Pauses all the animations in the group ]]
+function anim.group:pause()
+
+--[[ Reverses all the animations in the group ]]
+function anim.group:reverse()
+
+--[[ Callback function when all the animations in the group have finished ]]
+function anim.group:onFinish()
+
+--[[ Sets the time period of every animation in the group 
+	@param time:number time in seconds.
+]]
+function anim.group:setTime( time )
+
+
+----------------- anim.chain
+
+--[[ Creates an animation chain that plays multiple animations one after another. 
+	@param ... a list of animations to chain, in order.
+	@return table: an animation chain.
+]]
+function anim.chain:new(...)
+
+--[[ Plays/resumes the animation chain. ]]
+function anim.chain:play()
+
+--[[ Pauses the animation chain ]]
+function anim.chain:pause()
+
+--[[ Callback function when the last animation in the chain finishes ]]
+function anim.chain:onFinish(...)

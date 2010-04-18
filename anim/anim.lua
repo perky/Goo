@@ -1,34 +1,56 @@
--- Filename: animation.lua
--- Author: Luke Perkin
--- Date: 2010-02-26
+--[[	Animation library.
+		This is an animation library.
+		@name anim
+		@release 2010-02-26 version 1
+		@usage <pre>test</pre>
+]]
 
-goo.animation = class('goo animation', StatefulObject)
+local anim = {}
+anim.animation = class('goo animation', StatefulObject)
+anim.style = require 'anim.style'
+anim.list = {}
+anim.lastTime = 0
 
-require 'goo.animation.style'
+function anim:new(...)
+	return self.animation:new(...)
+end
 
-goo.animation.list = {}
-goo.animation.lastTime = 0
-function goo.animation:initialize(arg)
+--[[ Updates all animations, use inside love.update().
+	@param dt delta time
+]]
+function anim:update(dt)
+	for k,v in pairs(self.list) do
+		v:update(dt)
+	end
+end
+
+function anim.animation:initialize(arg)
 	super.initialize(self)
-	table.insert(goo.animation.list,self)
+	table.insert(anim.list,self)
 	self.table   = arg.table or {}
 	self.key     = arg.key
-	self.start   = arg.start
+	self.start   = arg.start or self.table[self.key]
 	self.finish  = arg.finish or self.table[self.key]
 	self.time    = arg.time or 1
-	self.relative = arg.relative or false
-	self.current = self.start
-	self.startTime = nil
-	self.style = arg.style or ANIM_LINEAR
-	self.stylevars = arg.stylevars or {}
+	self.delay   = arg.delay or 0
+	self.relative 	= arg.relative or false
+	self.current 	= self.start
+	self.startTime 	= nil
+	self.style 		= anim.style[arg.style] or anim.style.linear
+	self.styleargs 	= arg.styleargs or {}
 	self:gotoState('pause')
 end
-function goo.animation:update(dt)
+function anim.animation:update(dt)
 end
-function goo.animation:getState()
+function anim.animation:getState()
 	return self.state.name
 end
-function goo.animation:reverse()
+
+--[[ Reverse the animation instance.
+	<br/> Reverses the animation, going from finish to start.
+	@name anim:reverse
+]]
+function anim.animation:reverse()
 	if self.start then
 		self.start, self.finish = self.finish, self.start
 	else
@@ -39,47 +61,79 @@ function goo.animation:reverse()
 end
 
 -- PLAY STATE
-local play = goo.animation:addState('play')
+local play = anim.animation:addState('play')
 function play:enterState()
-	if not self.startTime then 
-		self.startTime = love.timer.getMicroTime()
-		if not self.start then
-			self.start = self.table[self.key]
-		end
-		if self.relative then
-			self.start = self.table[self.key]
-			self.finish = self.table[self.key] + self.finish
-		end
+	if not self.startTime then
+			self:startAnim()
 	else
 		self.playTime = love.timer.getMicroTime()
 		self.startTime = self.startTime + (self.playTime-self.pauseTime)
+	end
+end
+function play:startAnim()
+	self.startTime = love.timer.getMicroTime()
+	if not self.start then
+		self.start = self.table[self.key]
+	end
+	if self.relative then
+		self.start = self.table[self.key]
+		self.finish = self.table[self.key] + self.finish
 	end
 end
 function play:update(dt)
 	local _timeElapsed = love.timer.getMicroTime() - self.startTime
 	
 	if _timeElapsed < self.time then
-		self.current = self.style( _timeElapsed, self.start, self.finish - self.start, self.time, unpack(self.stylevars) )
+		self.current = self.style( _timeElapsed, self.start, self.finish - self.start, self.time, unpack(self.styleargs) )
 		self.table[self.key] = self.current
 	else
 		self:gotoState('finished')
 	end
 end
-function goo.animation:play()
-	self:gotoState('play')
+
+--[[ Plays or resumes the animation instance.
+	@name anim:play
+	@usage <pre class="example">
+	new_anim = anim:new{}
+	new_anim:play()
+	</pre>
+]]
+function anim.animation:play()
+	self:gotoState('delay')
+end
+
+-- DELAY STATE
+local delay = anim.animation:addState('delay')
+function delay:enterState()
+	if self.delay and self.delay > 0 then
+		self.startDelay = love.timer.getMicroTime()
+	else
+		self:gotoState('play')
+	end
+end
+function delay:update(dt)
+	local _delayElapsed = love.timer.getMicroTime() - self.startDelay
+	
+	if self.delay and _delayElapsed > self.delay then
+		self:gotoState('play')
+	end
 end
 
 -- PAUSE STATE
-local pause = goo.animation:addState('pause')
+local pause = anim.animation:addState('pause')
 function pause:enterState()
 	self.pauseTime = love.timer.getMicroTime()
 end
-function goo.animation:pause()
+
+--[[ Pause the animation instance.
+	@name anim:pause
+]]
+function anim.animation:pause()
 	self:gotoState('pause')
 end
 
 -- FINISHED STATE
-local finished = goo.animation:addState('finished')
+local finished = anim.animation:addState('finished')
 function finished:enterState()
 	self.startTime = nil
 	self.table[self.key] = self.finish
@@ -88,9 +142,16 @@ function finished:enterState()
 	if self.parentGroup then self.parentGroup:animFinished() end
 end
 
+--[[ Finishes the animation instance, going instantly to the finish value.
+	@name anim:finish
+]]
+function anim.animation:finish()
+	self:gotoState('finished')
+end
+
 -- ANIMATION GROUP
-goo.animation.group = class('goo animation group')
-local group = goo.animation.group
+anim.group = class('goo animation group', StatefulObject)
+local group = anim.group
 function group:initialize(...)
 	super.initialize(self)
 	self.anims = {}
@@ -98,7 +159,7 @@ function group:initialize(...)
 	self.state = 'pause'
 	for k,v in ipairs(arg) do
 		if type(v) == 'table' then
-		if instanceOf(goo.animation,v) or instanceOf(group, v) then
+		if instanceOf(anim,v) or instanceOf(group, v) then
 			table.insert(self.anims, v)
 			v.parentGroup = self
 		end
@@ -131,6 +192,7 @@ function group:animFinished( anim )
 end
 function group:finished()
 	self.state = 'finished'
+	log.print(self)
 	if self.onFinish then self:onFinish() end
 	if self.parentChain then self.parentChain:animFinished() end
 	if self.parentGroup then self.parentGroup:animFinished() end
@@ -145,8 +207,8 @@ function group:getState()
 end
 
 -- ANIMATION CHAIN
-goo.animation.chain = class('goo animation chain')
-local chain = goo.animation.chain
+anim.chain = class('goo animation chain')
+local chain = anim.chain
 function chain:initialize(...)
 	super.initialize(self)
 	self.anims = {}
@@ -154,7 +216,7 @@ function chain:initialize(...)
 	self.state = 'pause'
 	for k,v in ipairs(arg) do
 		if type(v) == 'table' then
-		if instanceOf(goo.animation,v) or instanceOf(group,v) or instanceOf(chain,v) then
+		if instanceOf(anim.animation,v) or instanceOf(group,v) or instanceOf(chain,v) then
 			table.insert(self.anims,v)
 			v.parentChain = self
 		end
@@ -181,6 +243,7 @@ function chain:reverse()
 			self:reverseB(_lastFin,v)
 		end
 	end
+	--self:reverseorder( self.anims )
 end
 function chain:reverseB(lastFin,anim)
 	if not anim.start then
@@ -195,6 +258,7 @@ function chain:reverseB(lastFin,anim)
 	else
 		anim:reverse()
 	end
+	anim.table[anim.key] = anim.start
 end
 function chain:animFinished(anim)
 	self.pos = self.pos + 1
@@ -211,62 +275,48 @@ end
 function chain:getState()
 	return self.state
 end
+function chain:reverseorder(t)
+	local tn = #t
+	local count = math.floor((tn/2)-1)
+	for i=0,count do
+		t[1+i], t[tn-i] = t[tn-i], t[1+i]
+	end
+end
 
-
-function goo.animation:moveTo( object, x, y, time )
+function anim:moveTo( object, x, y, time, style, delay )
 	local time = time or 1
 	local xAnim = self:new{
 		table 	= object,
 		key		= 'x',
 		finish  = x,
-		time	= time
+		time	= time,
+		style	= style,
+		delay	= delay
 	}
 	local yAnim = self:new{
 		table 	= object,
 		key		= 'y',
 		finish  = y,
-		time	= time
+		time	= time,
+		style	= style,
+		delay	= delay
 	}
 	local group = self.group:new(xAnim,yAnim)
+	group:play()
 	return group
 end
 
--- Initialization
---[[
-function love.load()
-
+function anim:easy( table, key, start, finish, time, style )
+	local _anim = self.animation:new{
+		table = table,
+		key = key,
+		start = start,
+		finish = finish,
+		time = time,
+		style = style
+	}
+	_anim:play()
+	return _anim
 end
 
--- Logic
-function love.update(dt)
-
-end
-
--- Scene Drawing
-function love.draw()
-
-end
-
--- Input
-function love.keypressed( key, unicode )
-
-end
-
-function love.keyreleased( key, unicode )
-
-end
-
-function love.mousepressed( x, y, button )
-
-end
-
-function love.mousereleased( x, y, button )
-
-end
-
-function joystickpressed( joystick, button )
-end
-
-function joystickreleased( joystick, button )
-end
-]]--
+return anim

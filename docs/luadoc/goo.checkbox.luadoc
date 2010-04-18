@@ -1,0 +1,15 @@
+--[[ Draws a checkbox. 
+	<br/>The checkbox is simply two images in the skin folder. To change the look, change the image
+	rather than override the draw function.
+]]
+module 'goo.checkbox'
+
+--[[ Gets if the checkbox is checked.
+	@return bool: true if checked, false if not.
+]]
+function goo.checkbox:isChecked()
+
+--[[ Set if the checkbox is checked
+	@param checked:bool true to check, false to not.
+]]
+function goo.checkbox:setChecked( checked )

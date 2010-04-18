@@ -1,0 +1,1015 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../../../luadoc.css" type="text/css" />
+	<!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>Goo</h1>
+<ul>
+	
+	<li><a href="../../../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+<h1>Modules</h1>
+<ul>
+
+	<li>
+		<a href="../../../modules/anim.html">anim</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.html">goo</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.button.html">goo.button</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.checkbox.html">goo.checkbox</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.colorpick.html">goo.colorpick</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.image.html">goo.image</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.null.html">goo.null</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.object.html">goo.object</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.panel.html">goo.panel</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.progressbar.html">goo.progressbar</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.text.html">goo.text</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.textinput.html">goo.textinput</a>
+	</li>
+
+</ul>
+
+
+
+<!-- File list -->
+
+<h1>Files</h1>
+<ul>
+
+	<li><strong>docs/luadoc/anim.luadoc</strong></li>
+	
+	<li>
+		<a href="../../../files/docs/luadoc/goo.button.html">docs/luadoc/goo.button.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.checkbox.html">docs/luadoc/goo.checkbox.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.colorpick.html">docs/luadoc/goo.colorpick.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.image.html">docs/luadoc/goo.image.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.html">docs/luadoc/goo.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.null.html">docs/luadoc/goo.null.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.object.html">docs/luadoc/goo.object.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.panel.html">docs/luadoc/goo.panel.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.progressbar.html">docs/luadoc/goo.progressbar.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.text.html">docs/luadoc/goo.text.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.textinput.html">docs/luadoc/goo.textinput.luadoc</a>
+	</li>
+
+</ul>
+
+
+
+
+
+
+</div> <!-- id="navigation" -->
+
+<div id="content">
+
+<h1>File <code>docs/luadoc/anim.luadoc</code></h1>
+
+
+<p>Animation library. <br/>This library gives you functions to animate a variable from one value to another. <br/>You can group and chain multiple animations, for instance grouping two animations that <br/>animate the x and y positions of an object. <br/>How anim interpolates between the two values are set by animation styles such as linear, quadIn etc. <br/>To load do the following. <pre class="example"> anim = require 'anim/anim'<br/> function love.update(dt)<br/> anim:update(dt)<br/> end </pre></p>
+
+
+
+
+<p><small><b>Release:</b> 2010-02-26 Version 1</small></p>
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.chain:new">anim.chain:new</a>&nbsp;(...)</td>
+	<td class="summary">Creates an animation chain that plays multiple animations one after another.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.chain:onFinish">anim.chain:onFinish</a>&nbsp;(...)</td>
+	<td class="summary">Callback function when the last animation in the chain finishes </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.chain:pause">anim.chain:pause</a>&nbsp;()</td>
+	<td class="summary">Pauses the animation chain </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.chain:play">anim.chain:play</a>&nbsp;()</td>
+	<td class="summary">Plays/resumes the animation chain.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.group:new">anim.group:new</a>&nbsp;(...)</td>
+	<td class="summary">Creates an animation group which can hold individual animations.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.group:onFinish">anim.group:onFinish</a>&nbsp;()</td>
+	<td class="summary">Callback function when all the animations in the group have finished </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.group:pause">anim.group:pause</a>&nbsp;()</td>
+	<td class="summary">Pauses all the animations in the group </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.group:play">anim.group:play</a>&nbsp;()</td>
+	<td class="summary">Plays/resumes all the animations in the group together </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.group:reverse">anim.group:reverse</a>&nbsp;()</td>
+	<td class="summary">Reverses all the animations in the group </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim.group:setTime">anim.group:setTime</a>&nbsp;(time)</td>
+	<td class="summary">Sets the time period of every animation in the group </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:easy">anim:easy</a>&nbsp;(table, key, start, finish, time, style)</td>
+	<td class="summary">Convenience function for anim:new().</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:finish">anim:finish</a>&nbsp;()</td>
+	<td class="summary">Finish the animation.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:moveTo">anim:moveTo</a>&nbsp;(object, x, y, time, style, delay)</td>
+	<td class="summary">Animates an object from it's current position to another.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:new">anim:new</a>&nbsp;(anim_table)</td>
+	<td class="summary">Create a new animation instance.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:onFinish">anim:onFinish</a>&nbsp;()</td>
+	<td class="summary">Callback function when the animation is finished.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:onPause">anim:onPause</a>&nbsp;()</td>
+	<td class="summary">Callback function when anim:pause() is called </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:onPlay">anim:onPlay</a>&nbsp;()</td>
+	<td class="summary">Callback function when anim:play() is called </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:pause">anim:pause</a>&nbsp;()</td>
+	<td class="summary">Pause the animation.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:play">anim:play</a>&nbsp;()</td>
+	<td class="summary">Plays or resumes the animation </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:reverse">anim:reverse</a>&nbsp;()</td>
+	<td class="summary">Reverse the animation.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:update">anim:update</a>&nbsp;(dt)</td>
+	<td class="summary">Updates all animations, use inside love.update().</td>
+	</tr>
+
+</table>
+
+
+
+
+<h2>Tables</h2>
+<table class="table_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#anim_table">anim_table</a></td>
+	<td class="summary">An animation table </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#styles">styles</a></td>
+	<td class="summary">List of animation styles you can use.</td>
+	</tr>
+
+</table>
+
+
+
+
+<h2>Examples</h2>
+<table class="table_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#Sliding text">Sliding text</a></td>
+	<td class="summary">Animate text to slide in from offscreen.</td>
+	</tr>
+
+</table>
+
+
+
+<br/>
+<br/>
+
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="anim.chain:new"></a><span>anim.chain:</span><strong>new</strong>&nbsp;( ... )</dt>
+<dd>
+<p class="func_description">Creates an animation chain that plays multiple animations one after another.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>...</b> <i><small></small></i><br/>a list of animations to chain, in order.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">table: an animation chain.</p>
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim.chain:onFinish"></a><span>anim.chain:</span><strong>onFinish</strong>&nbsp;( ... )</dt>
+<dd>
+<p class="func_description">Callback function when the last animation in the chain finishes</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim.chain:pause"></a><span>anim.chain:</span><strong>pause</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Pauses the animation chain</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim.chain:play"></a><span>anim.chain:</span><strong>play</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Plays/resumes the animation chain.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim.group:new"></a><span>anim.group:</span><strong>new</strong>&nbsp;( ... )</dt>
+<dd>
+<p class="func_description">Creates an animation group which can hold individual animations.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>...</b> <i><small></small></i><br/>multiple animations to group.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">table: an animation group.</p>
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim.group:onFinish"></a><span>anim.group:</span><strong>onFinish</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Callback function when all the animations in the group have finished</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim.group:pause"></a><span>anim.group:</span><strong>pause</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Pauses all the animations in the group</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim.group:play"></a><span>anim.group:</span><strong>play</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Plays/resumes all the animations in the group together</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim.group:reverse"></a><span>anim.group:</span><strong>reverse</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Reverses all the animations in the group</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim.group:setTime"></a><span>anim.group:</span><strong>setTime</strong>&nbsp;( time )</dt>
+<dd>
+<p class="func_description">Sets the time period of every animation in the group</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>time</b> <i><small>:number</small></i><br/>time in seconds.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:easy"></a><span>anim:</span><strong>easy</strong>&nbsp;( table, key, start, finish, time, style )</dt>
+<dd>
+<p class="func_description">Convenience function for anim:new(). Creates an animation instance. <br/>The animation will automatically play.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>table</b> <i><small>:table</small></i><br/>The table holding the value you wish to animate.
+	</li>
+	
+	
+	
+	<li>
+	  <b>key</b> <i><small>:string</small></i><br/>The key's value you wish to animate.
+	</li>
+	
+	
+	
+	<li>
+	  <b>start</b> <i><small>:number</small></i><br/>The starting value.
+	</li>
+	
+	
+	
+	<li>
+	  <b>finish</b> <i><small>:number</small></i><br/>The finishing value.
+	</li>
+	
+	
+	
+	<li>
+	  <b>time</b> <i><small>:number</small></i><br/>The time it takes for the animation to complete. (In seconds)
+	</li>
+	
+	
+	
+	<li>
+	  <b>style</b> <i><small>:string</small></i><br/>The style of the animation.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">table: An animation instance.</p>
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/anim.html#styles">
+		styles
+	</a>
+	
+	<li><a href="../../../files/docs/luadoc/anim.html#anim_table">
+		anim_table
+	</a>
+	
+	<li><a href="../../../files/docs/luadoc/anim.html#anim:new">
+		anim:new
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="anim:finish"></a><span>anim:</span><strong>finish</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Finish the animation. (Instantaneus)</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:moveTo"></a><span>anim:</span><strong>moveTo</strong>&nbsp;( object, x, y, time, style, delay )</dt>
+<dd>
+<p class="func_description">Animates an object from it's current position to another. <br/>The object must have x and y keys! <br/>The animation will automatically play.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>object</b> <i><small>:table</small></i><br/>An object with 'x' and 'y' keys.
+	</li>
+	
+	
+	
+	<li>
+	  <b>x</b> <i><small>:number</small></i><br/>The target x position.
+	</li>
+	
+	
+	
+	<li>
+	  <b>y</b> <i><small>:number</small></i><br/>The target y position.
+	</li>
+	
+	
+	
+	<li>
+	  <b>time</b> <i><small>:number</small></i><br/>The time it takes for the animation to complete. (In seconds)
+	</li>
+	
+	
+	
+	<li>
+	  <b>style</b> <i><small>:string</small></i><br/>The style of the animation.
+	</li>
+	
+	
+	
+	<li>
+	  <b>delay</b> <i><small>:number</small></i><br/>The time it waits before starting the animation. (In seconds)
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">table: An animation instance.</p>
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/anim.html#anim_table">
+		anim_table
+	</a>
+	
+	<li><a href="../../../files/docs/luadoc/anim.html#styles">
+		styles
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="anim:new"></a><span>anim:</span><strong>new</strong>&nbsp;( anim_table )</dt>
+<dd>
+<p class="func_description">Create a new animation instance.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>anim_table</b> <i><small></small></i><br/>A table of animation paremeters.
+	</li>
+	
+	
+</ul>
+
+
+
+
+<h3>Usage:</h3>
+<pre class="example"> new_animation = anim:new{<br /> 	table = myTable,<br /> 	key   = 'x_position',<br /> 	start = 12,<br /> 	finish = 120,<br /> 	time  = 4,<br /> 	style = 'linear'<br /> }<br /> </pre><br />
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">table: An animation instance you can call anim methods on.</p>
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/anim.html#anim_table">
+		anim_table
+	</a>
+	
+	<li><a href="../../../files/docs/luadoc/anim.html#Sliding text">
+		Sliding text
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="anim:onFinish"></a><span>anim:</span><strong>onFinish</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Callback function when the animation is finished.</p>
+
+
+
+
+<h3>Usage:</h3>
+<pre class="example"> new_anim = anim:new( anim_table )<br /> function new_anim:onFinish()<br /> 	print('animation finished')<br /> end<br /> </pre><br />
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:onPause"></a><span>anim:</span><strong>onPause</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Callback function when anim:pause() is called</p>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/anim.html#anim:onFinish">
+		anim:onFinish
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="anim:onPlay"></a><span>anim:</span><strong>onPlay</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Callback function when anim:play() is called</p>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/anim.html#anim:onFinish">
+		anim:onFinish
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="anim:pause"></a><span>anim:</span><strong>pause</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Pause the animation.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:play"></a><span>anim:</span><strong>play</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Plays or resumes the animation</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:reverse"></a><span>anim:</span><strong>reverse</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Reverse the animation.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:update"></a><span>anim:</span><strong>update</strong>&nbsp;( dt )</dt>
+<dd>
+<p class="func_description">Updates all animations, use inside love.update().</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>dt</b> <i><small>:number</small></i><br/>delta time
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+<h2><a name="tables"></a>Tables</h2>
+<dl class="table">
+
+<dt><a name="anim_table"></a><strong>anim_table</strong></dt>
+<dd>An animation table
+
+
+<em>Fields</em>
+<ul>
+	
+	<li>
+	  <b>table</b> The table to pass to the anim object
+	</li>
+	
+	<li>
+	  <b>key</b> The key to animate. (table[key] will be animated).
+	</li>
+	
+	<li>
+	  <b>start</b> The value the animation starts at. (if nil current table[key] value will be used).
+	</li>
+	
+	<li>
+	  <b>finish</b> The value the animation finishes at. (if nil current table[key] value will be used).
+	</li>
+	
+	<li>
+	  <b>time</b> The time it takes for the animation to complete. (in seconds, default 1).
+	</li>
+	
+	<li>
+	  <b>delay</b> The time it takes for the animation to start after calling anim:play(). (in seconds, default 0).
+	</li>
+	
+	<li>
+	  <b>style</b> The style of the animation. (a string, default 'linear'). <a href='#styles'>See style</a>.
+	</li>
+	
+	<li>
+	  <b>styleargs</b> Some styles such as 'elastic' can take extra parameters in the form of a table {arg1,arg2}.
+	</li>
+	
+</ul>
+
+
+
+
+</dd>
+
+
+<dt><a name="styles"></a><strong>styles</strong></dt>
+<dd>List of animation styles you can use.
+
+
+<em>Fields</em>
+<ul>
+	
+	<li>
+	  <b>linear</b> 
+	</li>
+	
+	<li>
+	  <b>quartIn</b> 
+	</li>
+	
+	<li>
+	  <b>quartOut</b> 
+	</li>
+	
+	<li>
+	  <b>quartInOut</b> 
+	</li>
+	
+	<li>
+	  <b>quadIn</b> 
+	</li>
+	
+	<li>
+	  <b>quadOut</b> 
+	</li>
+	
+	<li>
+	  <b>quadInOut</b> 
+	</li>
+	
+	<li>
+	  <b>expoIn</b> 
+	</li>
+	
+	<li>
+	  <b>expoOut</b> 
+	</li>
+	
+	<li>
+	  <b>expoInOut</b> 
+	</li>
+	
+	<li>
+	  <b>elastic</b> 
+	</li>
+	
+</ul>
+
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+<h2><a name="examples"></a>Examples</h2>
+<dl class="example">
+
+<dt><a name="Sliding text"></a><strong>Sliding text</strong></dt>
+<dd>
+
+<div class="example">
+	Here's how: <pre class="example"><br /> anim = require 'anim/anim'<br /> <br /> function love.load()<br /> 	text = { x = -100, str = 'Woo!' }<br /> 	new_anim = anim:new{<br /> 		table = text,<br /> 		key   = 'x',<br /> 		start = -100<br /> 		finish = 100,<br /> 		time = 2,<br /> 		style = 'quadInOut'<br /> 	}<br /> 	new_anim:play()<br /> end<br /> <br /> function love.update(dt)<br /> 	anim:update(dt)<br /> end<br /> <br /> function love.draw()<br /> 	love.graphics.print(text.str, text.x, 100)<br /> end<br /> </pre><br />
+</div>
+
+</dd>
+
+</dl>
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>

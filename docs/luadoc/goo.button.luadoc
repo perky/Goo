@@ -1,0 +1,25 @@
+--[[ Button object ]]
+module 'goo.button'
+
+--[[ Callback function when clicked
+ 	<br/>See <a href="goo.object.html#onClick">goo.object:onClick()</a>
+ 	@usage <pre class='example'>
+	local button = goo.button:new()
+	button.name = 'bob'
+	function button:onClick(x,y,button)
+		if button == 'l' then
+			print(self.name .. ' has been clicked')
+		end
+	end
+	-- when the button is clicked with left mouse button it prints:
+	-- bob has been clicked</pre>
+]]
+function goo.button:onClick()
+
+--[[ Set the text of the button ]]
+function goo.button:setText(text)
+
+--[[ Automatically size the button to fit the text. 
+	@param padding:number The inside padding, similar to CSS padding.
+]]
+function goo.button:sizeToText(padding)

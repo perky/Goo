@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Module goo.image</title>
+    <link rel="stylesheet" href="../luadoc.css" type="text/css" />
+	<!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>Goo</h1>
+<ul>
+	
+	<li><a href="../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+<h1>Modules</h1>
+<ul>
+
+	<li>
+		<a href="../modules/anim.html">anim</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.html">goo</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.button.html">goo.button</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.checkbox.html">goo.checkbox</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.colorpick.html">goo.colorpick</a>
+	</li>
+
+	<li><strong>goo.image</strong></li>
+	
+	<li>
+		<a href="../modules/goo.null.html">goo.null</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.object.html">goo.object</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.panel.html">goo.panel</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.progressbar.html">goo.progressbar</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.text.html">goo.text</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.textinput.html">goo.textinput</a>
+	</li>
+
+</ul>
+
+
+
+<!-- File list -->
+
+
+
+
+
+
+</div><!-- id="navigation" -->
+
+<div id="content">
+
+<h1>Module <code>goo.image</code></h1>
+
+<p>Draws an image.</p>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.image:getImage">goo.image:getImage</a>&nbsp;()</td>
+	<td class="summary">Get the image </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.image:getRotation">goo.image:getRotation</a>&nbsp;()</td>
+	<td class="summary">Get the rotation </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.image:loadImage">goo.image:loadImage</a>&nbsp;(filename)</td>
+	<td class="summary">Load the image from a file or imageData </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.image:setImage">goo.image:setImage</a>&nbsp;(image)</td>
+	<td class="summary">Set the image.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.image:setRotation">goo.image:setRotation</a>&nbsp;(rotation)</td>
+	<td class="summary">Set the rotation of the image.</td>
+	</tr>
+
+</table>
+
+
+
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="goo.image:getImage"></a><span>goo.image:</span><strong>getImage</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Get the image</p>
+
+
+
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">userdata: the image in image type.</p>
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.image:getRotation"></a><span>goo.image:</span><strong>getRotation</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Get the rotation</p>
+
+
+
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">number: the rotation in radians.</p>
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.image:loadImage"></a><span>goo.image:</span><strong>loadImage</strong>&nbsp;( filename )</dt>
+<dd>
+<p class="func_description">Load the image from a file or imageData</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>filename</b> <i><small>:string</small></i><br/>the filename of the image, or imageData
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.image:setImage"></a><span>goo.image:</span><strong>setImage</strong>&nbsp;( image )</dt>
+<dd>
+<p class="func_description">Set the image.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>image</b> <i><small>:userdata</small></i><br/>the image, must be image type.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.image:setRotation"></a><span>goo.image:</span><strong>setRotation</strong>&nbsp;( rotation )</dt>
+<dd>
+<p class="func_description">Set the rotation of the image.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>rotation</b> <i><small>:number</small></i><br/>rotation in radians.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>

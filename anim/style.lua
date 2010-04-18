@@ -3,8 +3,7 @@
 -- Date: 2010-02-26
 -- Desc: 
 
-goo.animation.style = {}
-local style = goo.animation.style
+local style = {}
 
 function style.linear( t, b, c, d )
 	return b + c*t/d
@@ -59,8 +58,6 @@ function style.expoInOut( t, b, c, d )
 end
 
 function style.elastic( t, b, c, d, a, p )
-	local a, p = a, p
-	
 	if t==0 then return b end
 	local t2 = t/d
 	
@@ -74,3 +71,5 @@ function style.elastic( t, b, c, d, a, p )
 	end
 	return a*math.pow(2, -10*t2) * math.sin((t2*d-s)*(2*math.pi)/p) + c + b
 end
+
+return style

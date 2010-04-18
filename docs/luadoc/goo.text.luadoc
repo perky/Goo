@@ -1,0 +1,12 @@
+--[[ Draw text. 
+	<br/>TODO: add support for leading, kerning, word spacing and perhaps even gradients.
+]]
+module 'goo.text'
+
+--[[ Sets the text. ]]
+function goo.text:setText( text )
+
+--[[ Gets the text. 
+	@return string: the text.
+]]
+function goo.text:getText( text )

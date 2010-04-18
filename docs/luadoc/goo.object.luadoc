@@ -1,0 +1,154 @@
+--[[ This is the superclass for all goo objects, every object can access it's methods ]]
+module 'goo.object'
+
+--[[ Internal function called from goo.object:new()
+ 	@param parent:goo_object the parent class to use.
+	@see goo
+]]
+function goo.object:initialize(parent)
+
+--[[ Sets the position of the object.
+	@param x:number x position
+	@param y:number y position 
+]]
+function goo.object:setPos(x,y)
+
+--[[ Sets the size of the position and updates the bounds. 
+	@param w:number width of the object
+	@param h:number height of the object
+]]
+function goo.object:setSize(w,h)
+
+--[[ Sets the scale of the object.
+	@param x:number x scale (0-1)
+	@param y:number y scale (0-1)
+]]
+function goo.object:setScale(x,y)
+
+--[[ Set whether the object should be drawn.
+	@param visible:bool Should the object be drawn?
+]]
+function goo.object:setVisible(visible)
+
+--[[ is the mouse over the object?
+	@return bool: returns true if the mouse is over the object. false otherwise.
+]]
+function goo.object:isMouseHover()
+
+--[[ Callback function when the mouse enters the bounds of the object. ]]
+function goo.object:enterHover()
+
+--[[ Callback function when the mouse exits the bounds of the object. ]]
+function goo.object:exitHover()
+
+--[[ Updates the bounds of the object.
+	<br/>The bounds of the object are 4 points, representing the bounding box.
+	<br/>This box is used to detect mouse events.
+]]
+function goo.object:updateBounds()
+
+--[[ Gets the absolute position of the object.
+ 	<br/>This function moves up through the entire instance hierarchy returning it's absolute position.
+	<br/>If the parent object is at position 10,10 then obj:getRelativePos(5,5) returns 15,15
+	@param x:number the relative x position. (defaults to objects x position)
+	@param y:number the relative y position. (defaults to objects y position)
+	@return number: absolute x position.
+	@return number: absolute y position.
+]]
+function goo.object:getAbsolutePos(x,y)
+
+--[[ Gets the absolute scale of the object.
+	@param x:number the x scale (0-1) (defaults to objects x scale)
+	@param y:number the y scale (0-1) (defaults to objects y scale)
+	@return number: the absolute x scale (0-1)
+	@return number: the absolute y scale (0-1)
+	@see goo.object:getAbsolutePos
+]]
+function goo.object:getAbsoluteScale(x,y)
+
+--[[ Get the relative position of an object ]]
+function goo.object:getRelativePos(x,y)
+
+--[[ Get the relative scale of an object ]]
+function goo.object:getRelativeScale(xscale,yscale)
+
+--[[]]
+function goo.object:sizeToText()
+
+--[[ Sets the style of the object. 
+	<br/>each object has a style similar to CSS stylesheets.
+	<br/>You can find these styles in goo/skins/{current skin}/style.lua
+	<br/>This function's purpose is to override the styles defined in style.lua.
+	<br/>To override pass a table with the same keys but you're overridden values.
+	@param style:table the <a href='goo.html#style'>style</a> which will override the style set in style.lua
+	@see goo.style
+]]
+function goo.object:setStyle(style)
+
+--[[ Resets the objects style to the one defined in style.lua
+	@see goo.object:setStyle
+]]
+function goo.object:resetStyle()
+
+--[[ This will remove the object from it's parent, it will not remove it completely.
+	<br/>This can be used to unhook an object from it's parent preventing it from inheriting position.
+	<br/>You could also bring an object to the top by calling removeFromParent followed by addToParent but
+	<br/>there is a convient function <a href='#bringToTop'>bringToTop</a> for that.
+	@see goo.object:addToParent, goo.object:bringToTop
+]]
+function goo.object:removeFromParent()
+
+--[[ This will hook the object onto the given parent
+	@param parent:goo_object the goo object to hook on to
+	@see goo.object:removeFromParent
+]]
+function goo.object:addToParent(parent)
+
+--[[ Get the current opacity value of the object. 
+	@return number: the opacity of the object (0-255)
+]]	
+function goo.object:getOpacity()
+
+--[[ Sets the opacity of the object
+	@param opacity:number the opacity value (0-255)
+]]
+function goo.object:setOpacity(opacity)
+
+--[[ Internal function used to set the drawing color, used instead of love.graphics.setColor.
+	<br/>You should not need to use this unless you're overriding an objects draw method.
+	<br/>It's much like love.graphics.setColor except it takes a table and respects the objects opacity methods.
+	@param colorTable:table a table of 3 or 4 color values {r,g,b,a} the values should have no keys. Alpha is optional.
+]]
+function goo.object:setColor(colorTable)
+
+--[[ Callback function when the object is clicked.
+	<br/>If this function exists it will be called when the mousePressed event occurs within the object's bounds.
+	@param x:number the absolute x position of the mouse.
+	@param y:number the absolute y position of the mouse.
+	@param button:string the button pressed. 'l' for left, 'r' for right, 'm' for middle.
+	@usage <pre class='example'>
+	local button = goo.button:new()
+	button.name = 'bob'
+	function button:onClick(x,y,button)
+		if button == 'l' then
+			print(self.name .. ' has been clicked')
+		end
+	end
+	-- when the button is clicked with left mouse button it prints:
+	-- bob has been clicked</pre>
+]]
+function goo.object:onClick(x,y,button)
+
+--[[Internal]]
+function goo.object:mousePressed(x,y,button)
+--[[Internal]]
+function goo.object:mouseReleased(x,y,button)
+--[[Internal]]
+function goo.object:update(dt)
+--[[Internal]]
+function goo.object:draw()
+
+--[[ Called after goo.object:setStyle 
+	@see goo.object:setStyle
+]]
+function goo.object:styleDidUpdate()

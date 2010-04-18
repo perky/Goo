@@ -1,0 +1,13 @@
+--[[ A panel is a draggable box with a close button and a title ]]
+module 'goo.panel'
+
+--[[ Sets the title of the panel
+ 	@param title:string The title.
+]]
+function setTitle(title)
+
+--[[ Set whether the panel can be dragged ]]
+function setDraggable( draggable )
+
+--[[ Set whether the close button should be shown ]]
+function showCloseButton( bool )

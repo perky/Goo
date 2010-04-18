@@ -1,0 +1,2 @@
+--[[ Null object. Useful for grouping and positioning multiple objects. ]]
+module 'goo.null'

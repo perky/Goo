@@ -1,0 +1,80 @@
+--[[ A box you can input text to. Supports all characters, lowercase and uppercase. Multiline text and caret movement. ]]
+module 'goo.textinput'
+
+function goo.textinput:keyReturn()
+function goo.textinput:keyBackspace()
+function goo.textinput:keyLeft()
+function goo.textinput:keyRight()
+function goo.textinput:keyUp()
+function goo.textinput:keyDown()
+
+--[[ Insert text on the current line at the specified position. 
+	@param text:string the text to insert.
+	@param pos:number the position to insert it at.
+]]
+function goo.textinput:insert( text, pos )
+--[[ Remove text on the current line at the specified position.
+	@param pos:number the position to start removing.
+	@param length:number the number of character after pos to remove.
+]]
+function goo.textinput:remove( pos, length )
+--[[ Create a new line
+	@param line_pos:number the line number to add the newline after.
+]]
+function goo.textinput:newline( line_pos )
+--[[ Removes a line of text.
+	@param line_pos:number thr line number to remove.
+]]
+function goo.textinput:removeline( line_pos )
+
+
+--[[ Get the text inside the textinput. 
+	@return string: the text.
+]]
+function goo.textinput:getText()
+
+--[[ Sets the text of the box, new lines ignored if not multiline.
+	@see goo.textinput:setMultiline
+]]
+function goo.textinput:setText( text )
+
+--[[ Get the position of the caret on the current line.
+	<br/>The position is relative to the line it's on.
+	@return number: the position of the caret, 1 is first character.
+	@see goo.textinput:getLinePos, goo.textinput:setCaretPos
+]]
+function goo.textinput:getCaretPos()
+
+--[[ Set the position of the caret on the current line
+	@param caretpos:number the position of the caret, 1 is first character
+	@see goo.textinput:setCaretPos
+]]
+function goo.textinput:setCaretPos( caretpos )
+
+--[[ Get the line number the caret is on.
+	@return number: the line the caret is on, 1 is first line.
+	@see goo.textinput:setLinePos, goo.textinput:getCaretPos
+]]
+function goo.textinput:getLinePos()
+
+--[[ Sets the line position of the caret ]]
+function goo.textinput:setLinePos( linepos )
+
+--[[ Get's if the textinput is in multiline mode ]]
+function goo.textinput:getMultiline()
+
+--[[ Set the text input's multiline mode.
+	@param multiline:bool true to allow multiple lines, false to not.
+]]
+function goo.textinput:setMultiline( multiline )
+
+--[[ Callback function called when the return key is pressed ]]
+function goo.textinput:onKeyReturn()
+
+--[[ Callback function when the key is pressed.
+	<br/>this will not override the functionality of the text input,
+	<br/>if you wish to override keypresses use goo.textinput:keypressed() instead.
+	@param key:string the keyConstant of the key pressed.
+	@param unicode:number the unicode value of the key pressed.
+]]
+function goo.textinput:onKeypressed()

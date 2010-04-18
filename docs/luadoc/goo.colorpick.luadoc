@@ -1,0 +1,12 @@
+--[[ Draws a color picker box where the user can select a color. ]]
+module 'goo.colorpick'
+
+--[[ Gets the currently selected color.
+	@return number: the Red value (0-255).
+	@return number: the Green value (0-255).
+	@return number: the Blue value (0-255).
+]]
+function goo.colorpick:getColor()
+
+--[[ Clears the selected color. ]]
+function goo.colorpick:clearSelection()

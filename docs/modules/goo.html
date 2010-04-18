@@ -1,0 +1,716 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Module goo</title>
+    <link rel="stylesheet" href="../luadoc.css" type="text/css" />
+	<!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>Goo</h1>
+<ul>
+	
+	<li><a href="../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+<h1>Modules</h1>
+<ul>
+
+	<li>
+		<a href="../modules/anim.html">anim</a>
+	</li>
+
+	<li><strong>goo</strong></li>
+	
+	<li>
+		<a href="../modules/goo.button.html">goo.button</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.checkbox.html">goo.checkbox</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.colorpick.html">goo.colorpick</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.image.html">goo.image</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.null.html">goo.null</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.object.html">goo.object</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.panel.html">goo.panel</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.progressbar.html">goo.progressbar</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.text.html">goo.text</a>
+	</li>
+
+	<li>
+		<a href="../modules/goo.textinput.html">goo.textinput</a>
+	</li>
+
+</ul>
+
+
+
+<!-- File list -->
+
+
+
+
+
+
+</div><!-- id="navigation" -->
+
+<div id="content">
+
+<h1>Module <code>goo</code></h1>
+
+<p>GUI Library. <br/>Goo is a gui lib that uses inherited positioning. <br/>What this means is that a object's position is always relative to it's parent's position. <br/>Some of you may recognise this as a scene graph. <br/>Goo also uses skins and styles which means you can easily change and seperate the object look from it's logic. <br/> <br/>To load place the following functions in their respective love function. <pre class="example"> goo = require 'goo/goo'<br/> goo:load()<br/> goo:update(dt)<br/> goo:draw()<br/> goo:mousepressed(x,y,button)<br/> goo:mousereleased(x,y,button)<br/> goo:keypressed(key,unicode)<br/> goo:keyreleased(key,unicode) </pre></p>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:new">goo.object:new</a>&nbsp;(parent)</td>
+	<td class="summary">Creates a goo object.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:debugdraw">goo:debugdraw</a>&nbsp;()</td>
+	<td class="summary">Draw a debug interface.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:draw">goo:draw</a>&nbsp;()</td>
+	<td class="summary">Draws all goo objects.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:keypressed">goo:keypressed</a>&nbsp;(key, unicode)</td>
+	<td class="summary">Send keypress to goo </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:keyreleased">goo:keyreleased</a>&nbsp;(key, unicode)</td>
+	<td class="summary">Send keyrelease to goo </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:load">goo:load</a>&nbsp;()</td>
+	<td class="summary">Loads the goo library.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:mousepressed">goo:mousepressed</a>&nbsp;(x, y, button)</td>
+	<td class="summary">Send mousepress to goo </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:mouserelease">goo:mouserelease</a>&nbsp;(x, y, button)</td>
+	<td class="summary">Send mouserelease to goo </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:setSkin">goo:setSkin</a>&nbsp;(skin_name)</td>
+	<td class="summary">Sets the skin of goo, default is 'default'.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:setSkinAllObjects">goo:setSkinAllObjects</a>&nbsp;(skin_name)</td>
+	<td class="summary">Sets the skin and updates all objects to use that skin.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo:update">goo:update</a>&nbsp;(dt)</td>
+	<td class="summary">Updates all goo objects.</td>
+	</tr>
+
+</table>
+
+
+
+
+<h2>Tables</h2>
+<table class="table_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#goo_object">goo_object</a></td>
+	<td class="summary">Standard goo object structure.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#style">style</a></td>
+	<td class="summary">Style table structure.</td>
+	</tr>
+
+</table>
+
+
+
+
+<h2>Examples</h2>
+<table class="table_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#Panel with button.">Panel with button.</a></td>
+	<td class="summary">Show a panel with a button that prints a message on click.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Slide in panel.">Slide in panel.</a></td>
+	<td class="summary">Show a panel that slides in.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Zoom in panel.">Zoom in panel.</a></td>
+	<td class="summary">Show a panel that zooms in bouncily with animated opacity too.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#Overriding styles.">Overriding styles.</a></td>
+	<td class="summary">Show a panel with two buttons, one of which has an overridden style.</td>
+	</tr>
+
+</table>
+
+
+
+<br/>
+<br/>
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="goo.object:new"></a><span>goo.object:</span><strong>new</strong>&nbsp;( parent )</dt>
+<dd>
+<p class="func_description">Creates a goo object. <br/>This is the main method to create gui objects, replace goo.object with a goo object. <br/>All goo objects inherit methods from <a href='goo.object.html'>goo.object</a></p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>parent</b> <i><small>:goo_object</small></i><br/>the parent object to use. Position and scale will be inherited from it's parent.
+	</li>
+	
+	
+</ul>
+
+
+
+
+<h3>Usage:</h3>
+<pre class="example"> panel = goo.panel:new(); button = goo.button:new( panel ) </pre>
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">goo_object: A goo object instance. Use links below to see the methods you can call on the table.</p>
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../modules/goo.html#goo_object">
+		goo_object
+	</a>
+	
+	<li><a href="../modules/goo.object.html">
+		goo.object
+	</a>
+	
+	<li><a href="../modules/goo.panel.html">
+		goo.panel
+	</a>
+	
+	<li><a href="../modules/goo.text.html">
+		goo.text
+	</a>
+	
+	<li><a href="../modules/goo.button.html">
+		goo.button
+	</a>
+	
+	<li><a href="../modules/goo.textinput.html">
+		goo.textinput
+	</a>
+	
+	<li><a href="../modules/goo.colorpick.html">
+		goo.colorpick
+	</a>
+	
+	<li><a href="../modules/goo.null.html">
+		goo.null
+	</a>
+	
+	<li><a href="../modules/goo.progressbar.html">
+		goo.progressbar
+	</a>
+	
+	<li><a href="">
+		goo.closebutton
+	</a>
+	
+	<li><a href="">
+		goo.bigbutton
+	</a>
+	
+	<li><a href="../modules/goo.checkbox.html">
+		goo.checkbox
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo:debugdraw"></a><span>goo:</span><strong>debugdraw</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Draw a debug interface. <br/>Will show the mouse position and the name of the goo object the mouse is over.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo:draw"></a><span>goo:</span><strong>draw</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Draws all goo objects.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo:keypressed"></a><span>goo:</span><strong>keypressed</strong>&nbsp;( key, unicode )</dt>
+<dd>
+<p class="func_description">Send keypress to goo</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo:keyreleased"></a><span>goo:</span><strong>keyreleased</strong>&nbsp;( key, unicode )</dt>
+<dd>
+<p class="func_description">Send keyrelease to goo</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo:load"></a><span>goo:</span><strong>load</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Loads the goo library.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo:mousepressed"></a><span>goo:</span><strong>mousepressed</strong>&nbsp;( x, y, button )</dt>
+<dd>
+<p class="func_description">Send mousepress to goo</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo:mouserelease"></a><span>goo:</span><strong>mouserelease</strong>&nbsp;( x, y, button )</dt>
+<dd>
+<p class="func_description">Send mouserelease to goo</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo:setSkin"></a><span>goo:</span><strong>setSkin</strong>&nbsp;( skin_name )</dt>
+<dd>
+<p class="func_description">Sets the skin of goo, default is 'default'. <br/>Skins are kept in goo/skins/ <br/>If you have already created objects you should use goo:setSkinAllObjects</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>skin_name</b> <i><small>:string</small></i><br/>the name of the skin, i.e. 'default', 'dark'.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="">
+		goo:setSkinAllObjects
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo:setSkinAllObjects"></a><span>goo:</span><strong>setSkinAllObjects</strong>&nbsp;( skin_name )</dt>
+<dd>
+<p class="func_description">Sets the skin and updates all objects to use that skin. <br/>any objects with overriden styles will be set to the skin's style.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>skin_name</b> <i><small>:string</small></i><br/>the name of the skin, i.e. 'default', 'dark'.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="">
+		goo:setSkin
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo:update"></a><span>goo:</span><strong>update</strong>&nbsp;( dt )</dt>
+<dd>
+<p class="func_description">Updates all goo objects.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+<h2><a name="tables"></a>Tables</h2>
+<dl class="table">
+
+<dt><a name="goo_object"></a><strong>goo_object</strong></dt>
+<dd>Standard goo object structure.
+
+
+<em>Fields</em>
+<ul>
+	
+	<li>
+	  <b>parent</b> The parent instance of the object.
+	</li>
+	
+	<li>
+	  <b>super</b> The parent class of the object. To hook an internal function rather than override use super.function(self,...), see usage below.
+	</li>
+	
+	<li>
+	  <b>children</b> A list of all children instances.
+	</li>
+	
+	<li>
+	  <b>x</b> The x position.
+	</li>
+	
+	<li>
+	  <b>y</b> The y position.
+	</li>
+	
+	<li>
+	  <b>w</b> The width.
+	</li>
+	
+	<li>
+	  <b>h</b> The height.
+	</li>
+	
+	<li>
+	  <b>bounds</b> The bounding box. Represented by a table: {x1,y1,x2,y2}. Used for detecting mouse events.
+	</li>
+	
+	<li>
+	  <b>xscale</b> The x scale.
+	</li>
+	
+	<li>
+	  <b>yscale</b> The y scale.
+	</li>
+	
+	<li>
+	  <b>opacity</b> The opacity of the object.
+	</li>
+	
+	<li>
+	  <b>visible</b> Boolean representing if the object is being drawn.
+	</li>
+	
+	<li>
+	  <b>mouseHover</b> Boolean representing if the mouse is ontop of the object.
+	</li>
+	
+</ul>
+
+
+
+<h3>Usage:</h3>
+<pre class='example'> button = goo.button:new()<br /> button.draw = function(self)<br /> 	super.draw(self)<br /> 	love.graphics.circle( 'line', 0, 0, 20 ) -- we use 0 for x,y because position is always relative to itself.<br /> end<br /> -- will draw a button with a circle ontop, not just a circle.</pre><br />
+
+
+</dd>
+
+
+<dt><a name="style"></a><strong>style</strong></dt>
+<dd>Style table structure. Possible keys:
+
+
+<em>Fields</em>
+<ul>
+	
+	<li>
+	  <b>backgroundColor</b> 
+	</li>
+	
+	<li>
+	  <b>backgroundColorHover</b> 
+	</li>
+	
+	<li>
+	  <b>borderColor</b> 
+	</li>
+	
+	<li>
+	  <b>borderColorHover</b> 
+	</li>
+	
+	<li>
+	  <b>borderWidth</b> 
+	</li>
+	
+	<li>
+	  <b>textColor</b> 
+	</li>
+	
+	<li>
+	  <b>textColorHover</b> 
+	</li>
+	
+	<li>
+	  <b>textFont</b> 
+	</li>
+	
+	<li>
+	  <b>color</b> 
+	</li>
+	
+	<li>
+	  <b>colorHover</b> 
+	</li>
+	
+	<li>
+	  <b>titleColor</b> 
+	</li>
+	
+	<li>
+	  <b>titleColorHover</b> 
+	</li>
+	
+	<li>
+	  <b>lineHeight</b> 
+	</li>
+	
+</ul>
+
+
+
+<h3>Usage:</h3>
+excerpt from default/style.lua <pre class="example"> style['goo button'] = {<br /> 	backgroundColor = {100,100,100},<br /> 	backgroundColorHover = {131,203,21},<br /> 	borderColor = {0,0,0,255},<br /> 	borderColorHover = {0,0,0},<br /> 	textColor = {255,255,255},<br /> 	textColorHover = {255,255,255},<br /> 	textFont = fonts.oldsans12<br /> }<br /> </pre><br />
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+<h2><a name="examples"></a>Examples</h2>
+<dl class="example">
+
+<dt><a name="Panel with button."></a><strong>Panel with button.</strong></dt>
+<dd>
+
+<div class="example">
+	<pre class="example"> local panel = goo.panel:new()<br /> panel:setPos( 10, 10 )<br /> panel:setSize( 200, 200 )<br /> panel:setTitle( 'I am a panel' )<br /> <br /> local button = goo.button:new( panel )<br /> button:setPos( 10, 20 )<br /> print( button:getAbsolutePos() ) -- 20, 30<br /> button:setText( 'Click me' )<br /> button:sizeToText()<br /> button.onClick = function( self, button )<br /> 	print( 'I have been clicked' )<br /> end<br /> </pre><br />
+</div>
+
+</dd>
+
+<dt><a name="Slide in panel."></a><strong>Slide in panel.</strong></dt>
+<dd>
+
+<div class="example">
+	<pre class="example"> local panel = goo.panel:new()<br /> panel:setPos( -250, 50 )<br /> panel:setSize( 200, 200 )<br /> panel:setTitle( 'I am a panel' )<br /> <br /> local checkbox = goo.checkbox:new( panel )<br /> checkbox:setPos( 10, 20 )<br /> function checkbox:onClick( button )<br /> 	print( self.class.name .. ' has been clicked' )<br /> end<br /> function checkbox:enterHover()<br /> 	print( self.class.name .. ' enter hover')<br /> end<br /> <br /> local slideIn = anim:new{<br /> 	table	=	panel,<br /> 	key		=	'x',<br /> 	finish	=	350,<br /> 	time	=	2,<br /> 	style	=	'expoOut'<br /> }<br /> slideIn:play()<br /> function slideIn:onFinish()<br /> 	checkbox:setChecked( true )<br /> end<br /> </pre><br />
+</div>
+
+</dd>
+
+<dt><a name="Zoom in panel."></a><strong>Zoom in panel.</strong></dt>
+<dd>
+
+<div class="example">
+	<pre class="example"> local testPanel = goo.panel:new()<br /> testPanel:setPos( 100, 50 )<br /> testPanel:setSize( 370, 500 )<br /> testPanel:setTitle( "This is a Color Panel." )<br /> testPanel:setOpacity( 10 )<br /> <br /> local colorPicker = goo.colorpick:new( testPanel )<br /> colorPicker:setPos(0,20)<br /> <br /> local input = goo.textinput:new( testPanel )<br /> input:setPos(3,486)<br /> input:setSize(360,20)<br /> input:setText('hello!')<br /> <br /> function colorPicker:onClick()<br /> 	local r,g,b = self:getColor()<br /> 	local str = string.format( 'Red = %i, Green = %i, Blue = %i', r,g,b)<br /> 	input:setText( str )<br /> end<br /> <br /> anim:easy( testPanel, 'xscale', 0, 1, 3, 'elastic')<br /> anim:easy( testPanel, 'yscale', 0.9, 1, 3, 'elastic')<br /> anim:easy( testPanel, 'opacity', 0, 255, 0.5, 'quadInOut')<br /> </pre><br />
+</div>
+
+</dd>
+
+<dt><a name="Overriding styles."></a><strong>Overriding styles.</strong></dt>
+<dd>
+
+<div class="example">
+	<pre class="example"> local panel = goo.panel:new()<br /> panel:setPos( 10, 10 )<br /> panel:setSize( 200, 200 )<br /> panel:setTitle( 'I am a panel' )<br /> <br /> local button = goo.button:new( panel )<br /> button:setPos( 10, 20 )<br /> print( button:getAbsolutePos() ) -- 20, 30<br /> button:setText( 'Click me' )<br /> button:sizeToText()<br /> button.onClick = function( self, button )<br /> 	print( 'I have been clicked' )<br /> end<br /> <br /> local redButton = goo.button:new( panel )<br /> redButton:setPos( 10, 100 )<br /> redButton:setText( 'My style has been overridden' )<br /> redButton:sizeToText( 10 )<br /> <br /> local redStyle = {<br /> 	backgroundColor = {255,0,0},<br /> 	backgroundColorHover = {125,0,0},<br /> 	borderColor = {0,0,0,0},<br /> 	borderColorHover = {0,0,0,0},<br /> }<br /> redButton:setStyle( redStyle )<br /> </pre><br />
+</div>
+
+</dd>
+
+</dl>
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>

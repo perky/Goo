@@ -1,0 +1,247 @@
+--[[ GUI Library.
+	<br/>Goo is a gui lib that uses inherited positioning.
+	<br/>What this means is that a object's position is always relative to it's parent's position. 
+	<br/>Some of you may recognise this as a scene graph.
+	<br/>Goo also uses skins and styles which means you can easily change and seperate the object look from it's logic.
+	<br/>
+	<br/>To load place the following functions in their respective love function.
+	<pre class="example">
+	goo = require 'goo/goo'<br/>
+	goo:load()<br/>
+	goo:update(dt)<br/>
+	goo:draw()<br/>
+	goo:mousepressed(x,y,button)<br/>
+	goo:mousereleased(x,y,button)<br/>
+	goo:keypressed(key,unicode)<br/>
+	goo:keyreleased(key,unicode)
+	</pre>
+	@class module
+	@name goo
+]]
+module 'goo'
+
+--[[ Loads the goo library. ]]
+function goo:load()
+
+--[[ Updates all goo objects. ]]
+function goo:update(dt)
+
+--[[ Draws all goo objects. ]]
+function goo:draw()
+
+--[[ Send mousepress to goo ]]
+function goo:mousepressed(x,y,button)
+
+--[[ Send mouserelease to goo ]]
+function goo:mouserelease(x,y,button)
+
+--[[ Send keypress to goo ]]
+function goo:keypressed(key,unicode)
+
+--[[ Send keyrelease to goo ]]
+function goo:keyreleased(key,unicode)
+
+--[[ Draw a debug interface.
+ 	<br/>Will show the mouse position and the name of the goo object the mouse is over.
+]]
+function goo:debugdraw()
+
+--[[ Creates a goo object.
+	<br/>This is the main method to create gui objects, replace goo.object with a goo object.
+	<br/>All goo objects inherit methods from <a href='goo.object.html'>goo.object</a>
+	@name goo.object:new
+	@class function
+	@param parent:goo_object the parent object to use. Position and scale will be inherited from it's parent.
+	@return goo_object: A goo object instance. Use links below to see the methods you can call on the table.
+	@usage <pre class="example"> panel = goo.panel:new(); button = goo.button:new( panel ) </pre>
+	@see goo_object
+	@see goo.object, goo.panel, goo.text, goo.button, goo.textinput, goo.colorpick, goo.null, goo.progressbar, goo.closebutton
+	@see goo.bigbutton, goo.checkbox
+ ]]
+function goo.object:new( parent )
+
+--[[ Standard goo object structure. 
+	@class table
+	@name goo_object
+	@field parent The parent instance of the object.
+	@field super The parent class of the object. To hook an internal function rather than override use super.function(self,...), see usage below.
+	@field children A list of all children instances.
+	@field x The x position.
+	@field y The y position.
+	@field w The width.
+	@field h The height.
+	@field bounds The bounding box. Represented by a table: {x1,y1,x2,y2}. Used for detecting mouse events.
+	@field xscale The x scale.
+	@field yscale The y scale.
+	@field opacity The opacity of the object.
+	@field visible Boolean representing if the object is being drawn.
+	@field mouseHover Boolean representing if the mouse is ontop of the object.
+	@usage <pre class='example'>
+	button = goo.button:new()
+	button.draw = function(self)
+		super.draw(self)
+		love.graphics.circle( 'line', 0, 0, 20 ) -- we use 0 for x,y because position is always relative to itself.
+	end
+	-- will draw a button with a circle ontop, not just a circle.</pre>
+]]
+
+--[[ Sets the skin of goo, default is 'default'.
+	<br/>Skins are kept in goo/skins/
+	<br/>If you have already created objects you should use goo:setSkinAllObjects
+	@param skin_name:string the name of the skin, i.e. 'default', 'dark'.
+	@see goo:setSkinAllObjects
+]]
+function goo:setSkin( skin_name )
+
+--[[ Sets the skin and updates all objects to use that skin.
+	<br/>any objects with overriden styles will be set to the skin's style.
+	@param skin_name:string the name of the skin, i.e. 'default', 'dark'.
+	@see goo:setSkin
+]]
+function goo:setSkinAllObjects( skin_name )
+
+--[[ Style table structure. Possible keys:
+	@class table
+	@name style
+	@field backgroundColor
+	@field backgroundColorHover
+	@field borderColor
+	@field borderColorHover
+	@field borderWidth
+	@field textColor
+	@field textColorHover
+	@field textFont
+	@field color
+	@field colorHover
+	@field titleColor
+	@field titleColorHover
+	@field lineHeight
+	@usage excerpt from default/style.lua <pre class="example">
+	style['goo button'] = {
+		backgroundColor = {100,100,100},
+		backgroundColorHover = {131,203,21},
+		borderColor = {0,0,0,255},
+		borderColorHover = {0,0,0},
+		textColor = {255,255,255},
+		textColorHover = {255,255,255},
+		textFont = fonts.oldsans12
+	}
+	</pre>
+]]
+
+
+--[[ Show a panel with a button that prints a message on click. 
+	@name Panel with button.
+	@class example
+	@usage <pre class="example">
+	local panel = goo.panel:new()
+	panel:setPos( 10, 10 )
+	panel:setSize( 200, 200 )
+	panel:setTitle( 'I am a panel' )
+
+	local button = goo.button:new( panel )
+	button:setPos( 10, 20 )
+	print( button:getAbsolutePos() ) -- 20, 30
+	button:setText( 'Click me' )
+	button:sizeToText()
+	button.onClick = function( self, button )
+		print( 'I have been clicked' )
+	end
+	</pre>
+]]
+
+--[[ Show a panel that slides in. The panel has a checkbox which ticks when the animation is finished. 
+	@name Slide in panel.
+	@class example
+	@usage <pre class="example">
+	local panel = goo.panel:new()
+	panel:setPos( -250, 50 )
+	panel:setSize( 200, 200 )
+	panel:setTitle( 'I am a panel' )
+
+	local checkbox = goo.checkbox:new( panel )
+	checkbox:setPos( 10, 20 )
+	function checkbox:onClick( button )
+		print( self.class.name .. ' has been clicked' )
+	end
+	function checkbox:enterHover()
+		print( self.class.name .. ' enter hover')
+	end
+	
+	local slideIn = anim:new{
+		table	=	panel,
+		key		=	'x',
+		finish	=	350,
+		time	=	2,
+		style	=	'expoOut'
+	}
+	slideIn:play()
+	function slideIn:onFinish()
+		checkbox:setChecked( true )
+	end
+	</pre>
+]]
+
+--[[ Show a panel that zooms in bouncily with animated opacity too.
+	The panel has a color picker which updates a textinput when pressed.
+	@name Zoom in panel.
+	@class example
+	@usage <pre class="example">
+	local testPanel = goo.panel:new()
+	testPanel:setPos( 100, 50 )
+	testPanel:setSize( 370, 500 )
+	testPanel:setTitle( "This is a Color Panel." )
+	testPanel:setOpacity( 10 )
+	
+	local colorPicker = goo.colorpick:new( testPanel )
+	colorPicker:setPos(0,20)
+	
+	local input = goo.textinput:new( testPanel )
+	input:setPos(3,486)
+	input:setSize(360,20)
+	input:setText('hello!')
+	
+	function colorPicker:onClick()
+		local r,g,b = self:getColor()
+		local str = string.format( 'Red = %i, Green = %i, Blue = %i', r,g,b)
+		input:setText( str )
+	end
+	
+	anim:easy( testPanel, 'xscale', 0, 1, 3, 'elastic')
+	anim:easy( testPanel, 'yscale', 0.9, 1, 3, 'elastic')
+	anim:easy( testPanel, 'opacity', 0, 255, 0.5, 'quadInOut')
+	</pre>
+]]
+
+--[[ Show a panel with two buttons, one of which has an overridden style. 
+	@name Overriding styles.
+	@class example
+	@usage <pre class="example">
+	local panel = goo.panel:new()
+	panel:setPos( 10, 10 )
+	panel:setSize( 200, 200 )
+	panel:setTitle( 'I am a panel' )
+
+	local button = goo.button:new( panel )
+	button:setPos( 10, 20 )
+	print( button:getAbsolutePos() ) -- 20, 30
+	button:setText( 'Click me' )
+	button:sizeToText()
+	button.onClick = function( self, button )
+		print( 'I have been clicked' )
+	end
+	
+	local redButton = goo.button:new( panel )
+	redButton:setPos( 10, 100 )
+	redButton:setText( 'My style has been overridden' )
+	redButton:sizeToText( 10 )
+	
+	local redStyle = {
+		backgroundColor = {255,0,0},
+		backgroundColorHover = {125,0,0},
+		borderColor = {0,0,0,0},
+		borderColorHover = {0,0,0,0},
+	}
+	redButton:setStyle( redStyle )
+	</pre>
+]]

@@ -1,0 +1,1014 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../../../luadoc.css" type="text/css" />
+	<!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>Goo</h1>
+<ul>
+	
+	<li><a href="../../../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+<h1>Modules</h1>
+<ul>
+
+	<li>
+		<a href="../../../modules/anim.html">anim</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.html">goo</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.button.html">goo.button</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.checkbox.html">goo.checkbox</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.colorpick.html">goo.colorpick</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.image.html">goo.image</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.null.html">goo.null</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.object.html">goo.object</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.panel.html">goo.panel</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.progressbar.html">goo.progressbar</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.text.html">goo.text</a>
+	</li>
+
+	<li>
+		<a href="../../../modules/goo.textinput.html">goo.textinput</a>
+	</li>
+
+</ul>
+
+
+
+<!-- File list -->
+
+<h1>Files</h1>
+<ul>
+
+	<li>
+		<a href="../../../files/docs/luadoc/anim.html">docs/luadoc/anim.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.button.html">docs/luadoc/goo.button.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.checkbox.html">docs/luadoc/goo.checkbox.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.colorpick.html">docs/luadoc/goo.colorpick.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.image.html">docs/luadoc/goo.image.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.html">docs/luadoc/goo.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.null.html">docs/luadoc/goo.null.luadoc</a>
+	</li>
+
+	<li><strong>docs/luadoc/goo.object.luadoc</strong></li>
+	
+	<li>
+		<a href="../../../files/docs/luadoc/goo.panel.html">docs/luadoc/goo.panel.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.progressbar.html">docs/luadoc/goo.progressbar.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.text.html">docs/luadoc/goo.text.luadoc</a>
+	</li>
+
+	<li>
+		<a href="../../../files/docs/luadoc/goo.textinput.html">docs/luadoc/goo.textinput.luadoc</a>
+	</li>
+
+</ul>
+
+
+
+
+
+
+</div> <!-- id="navigation" -->
+
+<div id="content">
+
+<h1>File <code>docs/luadoc/goo.object.luadoc</code></h1>
+
+
+<p>This is the superclass for all goo objects, every object can access it's methods</p>
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:addToParent">goo.object:addToParent</a>&nbsp;(parent)</td>
+	<td class="summary">This will hook the object onto the given parent </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:draw">goo.object:draw</a>&nbsp;()</td>
+	<td class="summary">Internal </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:enterHover">goo.object:enterHover</a>&nbsp;()</td>
+	<td class="summary">Callback function when the mouse enters the bounds of the object.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:exitHover">goo.object:exitHover</a>&nbsp;()</td>
+	<td class="summary">Callback function when the mouse exits the bounds of the object.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:getAbsolutePos">goo.object:getAbsolutePos</a>&nbsp;(x, y)</td>
+	<td class="summary">Gets the absolute position of the object.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:getAbsoluteScale">goo.object:getAbsoluteScale</a>&nbsp;(x, y)</td>
+	<td class="summary">Gets the absolute scale of the object.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:getRelativePos">goo.object:getRelativePos</a>&nbsp;(x, y)</td>
+	<td class="summary">Get the relative position of an object </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:getRelativeScale">goo.object:getRelativeScale</a>&nbsp;(xscale, yscale)</td>
+	<td class="summary">Get the relative scale of an object </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:initialize">goo.object:initialize</a>&nbsp;(parent)</td>
+	<td class="summary">Internal function called from goo.object:new() </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:isMouseHover">goo.object:isMouseHover</a>&nbsp;()</td>
+	<td class="summary">is the mouse over the object? </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:mousePressed">goo.object:mousePressed</a>&nbsp;(x, y, button)</td>
+	<td class="summary">Internal </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:mouseReleased">goo.object:mouseReleased</a>&nbsp;(x, y, button)</td>
+	<td class="summary">Internal </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:onClick">goo.object:onClick</a>&nbsp;(x, y, button)</td>
+	<td class="summary">Callback function when the object is clicked.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:removeFromParent">goo.object:removeFromParent</a>&nbsp;()</td>
+	<td class="summary">This will remove the object from it's parent, it will not remove it completely.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:resetStyle">goo.object:resetStyle</a>&nbsp;()</td>
+	<td class="summary">Resets the objects style to the one defined in style.lua </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:setColor">goo.object:setColor</a>&nbsp;(colorTable)</td>
+	<td class="summary">Internal function used to set the drawing color, used instead of love.graphics.setColor.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:setOpacity">goo.object:setOpacity</a>&nbsp;(opacity)</td>
+	<td class="summary">Sets the opacity of the object </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:setPos">goo.object:setPos</a>&nbsp;(x, y)</td>
+	<td class="summary">Sets the position of the object.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:setScale">goo.object:setScale</a>&nbsp;(x, y)</td>
+	<td class="summary">Sets the scale of the object.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:setSize">goo.object:setSize</a>&nbsp;(w, h)</td>
+	<td class="summary">Sets the size of the position and updates the bounds.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:setStyle">goo.object:setStyle</a>&nbsp;(style)</td>
+	<td class="summary">Sets the style of the object.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:setVisible">goo.object:setVisible</a>&nbsp;(visible)</td>
+	<td class="summary">Set whether the object should be drawn.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:sizeToText">goo.object:sizeToText</a>&nbsp;()</td>
+	<td class="summary"> </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:styleDidUpdate">goo.object:styleDidUpdate</a>&nbsp;()</td>
+	<td class="summary">Called after goo.object:setStyle </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:update">goo.object:update</a>&nbsp;(dt)</td>
+	<td class="summary">Internal </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#goo.object:updateBounds">goo.object:updateBounds</a>&nbsp;()</td>
+	<td class="summary">Updates the bounds of the object.</td>
+	</tr>
+
+</table>
+
+
+
+
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="goo.object:addToParent"></a><span>goo.object:</span><strong>addToParent</strong>&nbsp;( parent )</dt>
+<dd>
+<p class="func_description">This will hook the object onto the given parent</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>parent</b> <i><small>:goo_object</small></i><br/>the goo object to hook on to
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/goo.object.html#goo.object:removeFromParent">
+		goo.object:removeFromParent
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:draw"></a><span>goo.object:</span><strong>draw</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Internal</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:enterHover"></a><span>goo.object:</span><strong>enterHover</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Callback function when the mouse enters the bounds of the object.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:exitHover"></a><span>goo.object:</span><strong>exitHover</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Callback function when the mouse exits the bounds of the object.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:getAbsolutePos"></a><span>goo.object:</span><strong>getAbsolutePos</strong>&nbsp;( x, y )</dt>
+<dd>
+<p class="func_description">Gets the absolute position of the object. <br/>This function moves up through the entire instance hierarchy returning it's absolute position. <br/>If the parent object is at position 10,10 then obj:getRelativePos(5,5) returns 15,15</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>x</b> <i><small>:number</small></i><br/>the relative x position. (defaults to objects x position)
+	</li>
+	
+	
+	
+	<li>
+	  <b>y</b> <i><small>:number</small></i><br/>the relative y position. (defaults to objects y position)
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+<h3>Return values:</h3>
+<ol>
+	
+	<li>number: absolute x position.
+	
+	<li>number: absolute y position.
+	
+</ol>
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:getAbsoluteScale"></a><span>goo.object:</span><strong>getAbsoluteScale</strong>&nbsp;( x, y )</dt>
+<dd>
+<p class="func_description">Gets the absolute scale of the object.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>x</b> <i><small>:number</small></i><br/>the x scale (0-1) (defaults to objects x scale)
+	</li>
+	
+	
+	
+	<li>
+	  <b>y</b> <i><small>:number</small></i><br/>the y scale (0-1) (defaults to objects y scale)
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+<h3>Return values:</h3>
+<ol>
+	
+	<li>number: the absolute x scale (0-1)
+	
+	<li>number: the absolute y scale (0-1)
+	
+</ol>
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/goo.object.html#goo.object:getAbsolutePos">
+		goo.object:getAbsolutePos
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:getRelativePos"></a><span>goo.object:</span><strong>getRelativePos</strong>&nbsp;( x, y )</dt>
+<dd>
+<p class="func_description">Get the relative position of an object</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:getRelativeScale"></a><span>goo.object:</span><strong>getRelativeScale</strong>&nbsp;( xscale, yscale )</dt>
+<dd>
+<p class="func_description">Get the relative scale of an object</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:initialize"></a><span>goo.object:</span><strong>initialize</strong>&nbsp;( parent )</dt>
+<dd>
+<p class="func_description">Internal function called from goo.object:new()</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>parent</b> <i><small>:goo_object</small></i><br/>the parent class to use.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../modules/goo.html">
+		goo
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:isMouseHover"></a><span>goo.object:</span><strong>isMouseHover</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">is the mouse over the object?</p>
+
+
+
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">bool: returns true if the mouse is over the object. false otherwise.</p>
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:mousePressed"></a><span>goo.object:</span><strong>mousePressed</strong>&nbsp;( x, y, button )</dt>
+<dd>
+<p class="func_description">Internal</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:mouseReleased"></a><span>goo.object:</span><strong>mouseReleased</strong>&nbsp;( x, y, button )</dt>
+<dd>
+<p class="func_description">Internal</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:onClick"></a><span>goo.object:</span><strong>onClick</strong>&nbsp;( x, y, button )</dt>
+<dd>
+<p class="func_description">Callback function when the object is clicked. <br/>If this function exists it will be called when the mousePressed event occurs within the object's bounds.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>x</b> <i><small>:number</small></i><br/>the absolute x position of the mouse.
+	</li>
+	
+	
+	
+	<li>
+	  <b>y</b> <i><small>:number</small></i><br/>the absolute y position of the mouse.
+	</li>
+	
+	
+	
+	<li>
+	  <b>button</b> <i><small>:string</small></i><br/>the button pressed. 'l' for left, 'r' for right, 'm' for middle.
+	</li>
+	
+	
+</ul>
+
+
+
+
+<h3>Usage:</h3>
+<pre class='example'> local button = goo.button:new()<br /> button.name = 'bob'<br /> function button:onClick(x,y,button)<br /> 	if button == 'l' then<br /> 		print(self.name .. ' has been clicked')<br /> 	end<br /> end<br /> -- when the button is clicked with left mouse button it prints:<br /> -- bob has been clicked</pre><br />
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:removeFromParent"></a><span>goo.object:</span><strong>removeFromParent</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">This will remove the object from it's parent, it will not remove it completely. <br/>This can be used to unhook an object from it's parent preventing it from inheriting position. <br/>You could also bring an object to the top by calling removeFromParent followed by addToParent but <br/>there is a convient function <a href='#bringToTop'>bringToTop</a> for that.</p>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/goo.object.html#goo.object:addToParent">
+		goo.object:addToParent
+	</a>
+	
+	<li><a href="goo.object.html#goo.object:bringToTop">
+		goo.object:bringToTop
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:resetStyle"></a><span>goo.object:</span><strong>resetStyle</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Resets the objects style to the one defined in style.lua</p>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/goo.object.html#goo.object:setStyle">
+		goo.object:setStyle
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:setColor"></a><span>goo.object:</span><strong>setColor</strong>&nbsp;( colorTable )</dt>
+<dd>
+<p class="func_description">Internal function used to set the drawing color, used instead of love.graphics.setColor. <br/>You should not need to use this unless you're overriding an objects draw method. <br/>It's much like love.graphics.setColor except it takes a table and respects the objects opacity methods.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>colorTable</b> <i><small>:table</small></i><br/>a table of 3 or 4 color values {r,g,b,a} the values should have no keys. Alpha is optional.
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:setOpacity"></a><span>goo.object:</span><strong>setOpacity</strong>&nbsp;( opacity )</dt>
+<dd>
+<p class="func_description">Sets the opacity of the object</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>opacity</b> <i><small>:number</small></i><br/>the opacity value (0-255)
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:setPos"></a><span>goo.object:</span><strong>setPos</strong>&nbsp;( x, y )</dt>
+<dd>
+<p class="func_description">Sets the position of the object.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>x</b> <i><small>:number</small></i><br/>x position
+	</li>
+	
+	
+	
+	<li>
+	  <b>y</b> <i><small>:number</small></i><br/>y position
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:setScale"></a><span>goo.object:</span><strong>setScale</strong>&nbsp;( x, y )</dt>
+<dd>
+<p class="func_description">Sets the scale of the object.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>x</b> <i><small>:number</small></i><br/>x scale (0-1)
+	</li>
+	
+	
+	
+	<li>
+	  <b>y</b> <i><small>:number</small></i><br/>y scale (0-1)
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:setSize"></a><span>goo.object:</span><strong>setSize</strong>&nbsp;( w, h )</dt>
+<dd>
+<p class="func_description">Sets the size of the position and updates the bounds.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>w</b> <i><small>:number</small></i><br/>width of the object
+	</li>
+	
+	
+	
+	<li>
+	  <b>h</b> <i><small>:number</small></i><br/>height of the object
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:setStyle"></a><span>goo.object:</span><strong>setStyle</strong>&nbsp;( style )</dt>
+<dd>
+<p class="func_description">Sets the style of the object. <br/>each object has a style similar to CSS stylesheets. <br/>You can find these styles in goo/skins/{current skin}/style.lua <br/>This function's purpose is to override the styles defined in style.lua. <br/>To override pass a table with the same keys but you're overridden values.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>style</b> <i><small>:table</small></i><br/>the <a href='goo.html#style'>style</a> which will override the style set in style.lua
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="goo.html#goo:style">
+		goo.style
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:setVisible"></a><span>goo.object:</span><strong>setVisible</strong>&nbsp;( visible )</dt>
+<dd>
+<p class="func_description">Set whether the object should be drawn.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	
+	<li>
+	  <b>visible</b> <i><small>:bool</small></i><br/>Should the object be drawn?
+	</li>
+	
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:sizeToText"></a><span>goo.object:</span><strong>sizeToText</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description"></p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:styleDidUpdate"></a><span>goo.object:</span><strong>styleDidUpdate</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Called after goo.object:setStyle</p>
+
+
+
+
+
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../../files/docs/luadoc/goo.object.html#goo.object:setStyle">
+		goo.object:setStyle
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:update"></a><span>goo.object:</span><strong>update</strong>&nbsp;( dt )</dt>
+<dd>
+<p class="func_description">Internal</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="goo.object:updateBounds"></a><span>goo.object:</span><strong>updateBounds</strong>&nbsp;(  )</dt>
+<dd>
+<p class="func_description">Updates the bounds of the object. <br/>The bounds of the object are 4 points, representing the bounding box. <br/>This box is used to detect mouse events.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>

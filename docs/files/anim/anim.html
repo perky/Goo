@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../../luadoc.css" type="text/css" />
+	<!--meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/-->
+</head>
+
+<body>
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+<div id="main">
+
+<div id="navigation">
+
+
+<h1>LuaDoc</h1>
+<ul>
+	
+	<li><a href="../../index.html">Index</a></li>
+	
+</ul>
+
+
+<!-- Module list -->
+
+
+
+<!-- File list -->
+
+<h1>Files</h1>
+<ul>
+
+	<li><strong>anim/anim.lua</strong></li>
+	
+	<li>
+		<a href="../../files/anim/style.html">anim/style.lua</a>
+	</li>
+
+</ul>
+
+
+
+
+
+
+</div> <!-- id="navigation" -->
+
+<div id="content">
+
+<h1>File <code>anim/anim.lua</code></h1>
+
+
+
+
+
+
+
+<h2>Functions</h2>
+<table class="function_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:finish">anim:finish</a>&nbsp;()</td>
+	<td class="summary">Finishes the animation instance, going instantly to the finish value.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:new">anim:new</a>&nbsp;(anim_table)</td>
+	<td class="summary">Create a new animation instance.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:pause">anim:pause</a>&nbsp;()</td>
+	<td class="summary">Pause the animation instance.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:play">anim:play</a>&nbsp;()</td>
+	<td class="summary">Plays or resumes the animation instance.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:reverse">anim:reverse</a>&nbsp;()</td>
+	<td class="summary">Reverse the animation instance.</td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#anim:update">anim:update</a>&nbsp;(dt)</td>
+	<td class="summary">Updates all animations, use inside love.update().</td>
+	</tr>
+
+</table>
+
+
+
+
+<h2>Tables</h2>
+<table class="table_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#anim_table">anim_table</a></td>
+	<td class="summary">An animation table </td>
+	</tr>
+
+	<tr>
+	<td class="name" nowrap><a href="#styles">styles</a></td>
+	<td class="summary">List of animation styles you can use.</td>
+	</tr>
+
+</table>
+
+
+
+
+<h2>Examples</h2>
+<table class="table_list">
+
+	<tr>
+	<td class="name" nowrap><a href="#example1">example1</a></td>
+	<td class="summary">Example </td>
+	</tr>
+
+</table>
+
+
+
+<br/>
+<br/>
+
+
+
+
+<h2><a name="functions"></a>Functions</h2>
+<dl class="function">
+
+
+
+<dt><a name="anim:finish"></a><strong>anim:finish</strong>&nbsp;()</dt>
+<dd>
+<p class="func_description">Finishes the animation instance, going instantly to the finish value.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:new"></a><strong>anim:new</strong>&nbsp;(anim_table)</dt>
+<dd>
+<p class="func_description">Create a new animation instance.</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  <b>anim_table</b>: A table of animation paremeters.
+	</li>
+	
+</ul>
+
+
+
+
+<h3>Usage:</h3>
+<pre class="example"> new_animation = anim:new{<br /> table = myTable,<br /> key   = 'x_position',<br /> start = 12,<br /> finish = 120,<br /> time  = 4,<br /> style = 'linear'<br /> }<br /> </pre><br />
+
+
+
+<h3>Return value:</h3>
+<p class="func_return">table: An animation instance you can call anim methods on.</p>
+
+
+
+<h3>See also:</h3>
+<ul>
+	
+	<li><a href="../../files/anim/anim.html#anim_table">
+		anim_table
+	</a>
+	
+</ul>
+
+</dd>
+
+
+
+
+<dt><a name="anim:pause"></a><strong>anim:pause</strong>&nbsp;()</dt>
+<dd>
+<p class="func_description">Pause the animation instance.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:play"></a><strong>anim:play</strong>&nbsp;()</dt>
+<dd>
+<p class="func_description">Plays or resumes the animation instance.</p>
+
+
+
+
+<h3>Usage:</h3>
+<pre class="example"> new_anim = anim:new{}<br /> new_anim:play()<br /> </pre><br />
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:reverse"></a><strong>anim:reverse</strong>&nbsp;()</dt>
+<dd>
+<p class="func_description">Reverse the animation instance. <br/> Reverses the animation, going from finish to start.</p>
+
+
+
+
+
+
+
+
+</dd>
+
+
+
+
+<dt><a name="anim:update"></a><strong>anim:update</strong>&nbsp;(dt)</dt>
+<dd>
+<p class="func_description">Updates all animations, use inside love.update().</p>
+
+<h3>Parameters</h3>
+<ul>
+	
+	<li>
+	  <b>dt</b>: delta time
+	</li>
+	
+</ul>
+
+
+
+
+
+
+
+
+</dd>
+
+
+</dl>
+
+
+
+
+<h2><a name="tables"></a>Tables</h2>
+<dl class="table">
+
+<dt><a name="anim_table"></a><strong>anim_table</strong></dt>
+<dd>An animation table
+
+
+<em>Fields</em>
+<ul>
+	
+	<li>
+	  <b>table</b> The table to pass to the anim object
+	</li>
+	
+	<li>
+	  <b>key</b> The key to animate. (table[key] will be animated).
+	</li>
+	
+	<li>
+	  <b>start</b> The value the animation starts at. (if nil current table[key] value will be used).
+	</li>
+	
+	<li>
+	  <b>finish</b> The value the animation finishes at. (if nil current table[key] value will be used).
+	</li>
+	
+	<li>
+	  <b>time</b> The time it takes for the animation to complete. (in seconds, default 1).
+	</li>
+	
+	<li>
+	  <b>delay</b> The time it takes for the animation to start after calling anim:play(). (in seconds, default 0).
+	</li>
+	
+	<li>
+	  <b>style</b> The style of the animation. (a string, default 'linear'). <a href='#styles'>See style</a>.
+	</li>
+	
+</ul>
+
+
+</dd>
+
+
+<dt><a name="styles"></a><strong>styles</strong></dt>
+<dd>List of animation styles you can use.
+
+
+<em>Fields</em>
+<ul>
+	
+	<li>
+	  <b>linear</b> 
+	</li>
+	
+	<li>
+	  <b>quartIn</b> 
+	</li>
+	
+	<li>
+	  <b>quartOut</b> 
+	</li>
+	
+	<li>
+	  <b>quartInOut</b> 
+	</li>
+	
+	<li>
+	  <b>quadIn</b> 
+	</li>
+	
+	<li>
+	  <b>quadOut</b> 
+	</li>
+	
+	<li>
+	  <b>quadInOut</b> 
+	</li>
+	
+	<li>
+	  <b>expoIn</b> 
+	</li>
+	
+	<li>
+	  <b>expoOut</b> 
+	</li>
+	
+	<li>
+	  <b>expoInOut</b> 
+	</li>
+	
+	<li>
+	  <b>elastic</b> 
+	</li>
+	
+</ul>
+
+
+</dd>
+
+
+</dl>
+
+
+
+<h2><a name="examples"></a>Examples</h2>
+<dl class="example">
+
+<dt><a name="example1"></a><strong>example1</strong></dt>
+<dd>
+
+<div class="example">
+	This does something? <pre class="example"><br /> testing<br /> this<br />  usage!<br /> 	lol<br /> 	lol<br /> end<br /> </pre><br />
+</div>
+
+</dd>
+
+</dl>
+
+
+
+
+</div> <!-- id="content" -->
+
+</div> <!-- id="main" -->
+
+<div id="about">
+	<p><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0!" height="31" width="88" /></a></p>
+</div> <!-- id="about" -->
+
+</div> <!-- id="container" -->	
+</body>
+</html>

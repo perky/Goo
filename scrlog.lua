@@ -31,14 +31,14 @@ function scrlog.draw()
 	local text_alpha = scrlog.transparency + ((255-scrlog.transparency)*0.01) * scrlog._alpha
 	local bg_alpha = scrlog.transparency * 0.01 * scrlog._alpha
 	
-	love.graphics.setColor(0, 0, 0, bg_alpha)
+	love.graphics.setColor(10, 10, 10, bg_alpha)
 	love.graphics.rectangle( "fill", 0, 0, scrlog.width, scrlog.getHeight() )
 	love.graphics.setColor(255, 255, 255, bg_alpha)
 	love.graphics.rectangle( "fill", scrlog.width-5, (scrlog.scroll/(scrlog.lineNum - scrlog.getShowLines())*(scrlog.getHeight()-2)), 5, 2 )
 	
 	--Draw text log
 	love.graphics.setFont(scrlog.font)
-	love.graphics.setColor(255, 255, 255, text_alpha)
+	love.graphics.setColor(200, 200, 200, text_alpha)
 	for i = 1, scrlog.getShowLines() do
 		if scrlog.lines[i + scrlog.scroll] then
 			love.graphics.print(scrlog.lines[i + scrlog.scroll], scrlog.textxOffset, (i*scrlog.fontHeight))

@@ -1,0 +1,27 @@
+--[[ Draws an image. ]]
+module 'goo.image'
+
+--[[ Set the image. 
+	@param image:userdata the image, must be image type.
+]]
+function goo.image:setImage( image )
+
+--[[ Get the image 
+	@return userdata: the image in image type.
+]]
+function goo.image:getImage()
+
+--[[ Load the image from a file or imageData
+	@param filename:string the filename of the image, or imageData
+]]
+function goo.image:loadImage( filename )
+
+--[[ Set the rotation of the image.
+	@param rotation:number rotation in radians.
+]]
+function goo.image:setRotation( rotation )
+
+--[[ Get the rotation
+	@return number: the rotation in radians.
+]]
+function goo.image:getRotation()

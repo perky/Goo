@@ -1,0 +1,35 @@
+--[[ Progress bar useful giving users feedback on loading or game status such as health, magic etc. ]]
+module 'goo.progressbar'
+
+--[[ Sets the range of the progress bar, i.e. if you're downloading a file 1024 bytes in size
+	you would set the range to min = 0, max = 1024
+	@param min:number the minimum value the progress bar will reperesent at 0% width.
+	@param max:number the maximum value the progress bar will reperesent at 100% width.
+	@return number: the range of the value ( max - min ).
+]]
+function goo.progressbar:setRange( min, max )
+
+--[[ Increments the progress by 1 ]]
+function goo.progressbar:incrementProgress()
+
+--[[ Sets the progress value, should be a number within the range you defined.
+	@param progress:number a number between the range you defined
+	@see goo.progressbar:setRange
+]]
+function goo.progressbar:setProgress( progress )
+
+--[[ Sets the width of the progress bar to the specified percentage, i.e. 50% is half the width.
+	@param percentage:number a percentage value to set the width of the progress bar (0-100%).
+]]
+function goo.progressbar:setPercentage( percentage )
+
+--[[ Returns the current progress value. ]]
+function goo.progressbar:getProgress()
+
+--[[ Returns the current percentage of progress. 
+	@return number: percentage of progress (0-100%).
+]]
+function goo.progressbar:getPercentage()
+
+--[[ Internal function to draw the progress bar, you may wish to override however. ]]
+function goo.progressbar:draw()
