@@ -305,7 +305,7 @@ end]]--
 -- Load
 function goo:load()
 	self.graphics = {}
-	self.graphics.roundrect = require 'goo.graphics.roundrect'
+	self.graphics.roundrect = require 'goo/graphics/roundrect'
 	-- Baseobject is the master parent for all objects.
 	self.BASEOBJECT = self.base:new()
 	-- Load all objects
