@@ -3,8 +3,8 @@
 -- Date: 2010-02-25
 
 -- Initialization
-require 'middleclass'
-require 'mindstate'
+require 'MiddleClass'
+require 'MindState'
 goo = require 'goo/goo'
 anim = require 'anim/anim'
 
