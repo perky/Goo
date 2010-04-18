@@ -5,8 +5,8 @@
 -- Initialization
 require 'middleclass'
 require 'mindstate'
-goo = require 'goo.goo'
-anim = require 'anim.anim'
+goo = require 'goo/goo'
+anim = require 'anim/anim'
 
 panels = {}
 panels.name = { 'Open panel with button', 'Slide in panel with checkbox', 'Zoom in panel with textinput and colorpick', 'using the null object', 'Change skin'}
