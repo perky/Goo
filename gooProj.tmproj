@@ -21,34 +21,6 @@
 	<integer>203</integer>
 	<key>metaData</key>
 	<dict>
-		<key>goo/animation/animation.lua</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>7</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>goo/animation/style.lua</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>12</integer>
-				<key>line</key>
-				<integer>76</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>goo/goo.lua</key>
 		<dict>
 			<key>caret</key>
@@ -111,41 +83,11 @@
 		<string>main.lua</string>
 		<string>test.lua</string>
 		<string>goo/goo.lua</string>
-		<string>goo/animation/animation.lua</string>
-		<string>goo/animation/style.lua</string>
 		<string>goo/skins/default/style.lua</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<false/>
-	<key>showFileHierarchyPanel</key>
-	<true/>
-	<key>treeState</key>
-	<dict>
-		<key>Goo</key>
-		<dict>
-			<key>isExpanded</key>
-			<true/>
-			<key>subItems</key>
-			<dict>
-				<key>goo</key>
-				<dict>
-					<key>isExpanded</key>
-					<true/>
-					<key>subItems</key>
-					<dict>
-						<key>animation</key>
-						<dict>
-							<key>isExpanded</key>
-							<true/>
-							<key>subItems</key>
-							<dict/>
-						</dict>
-					</dict>
-				</dict>
-			</dict>
-		</dict>
-	</dict>
 	<key>windowFrame</key>
-	<string>{{329, 38}, {1309, 936}}</string>
+	<string>{{332, 92}, {1309, 936}}</string>
 </dict>
 </plist>

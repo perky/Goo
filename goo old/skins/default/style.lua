@@ -12,10 +12,10 @@
 
 local style = {}
 local fonts = {}
-fonts.default24 = love.graphics.newFont( 82 )
-fonts.oldsans12 = love.graphics.newFont(GOO_SKINPATH .. 'oldsansblack.ttf', 12)
+fonts.default24 = love.graphics.newFont(24)
+fonts.oldsans12 = love.graphics.newFont(GOO_SKINPATH .. 'oldsansblack.ttf')
 fonts.oldsans24 = love.graphics.newFont(GOO_SKINPATH .. 'oldsansblack.ttf', 24)
-fonts.oldsans32 = love.graphics.newFont(GOO_SKINPATH .. 'oldsansblack.ttf', 42)
+fonts.oldsans32 = love.graphics.newFont(GOO_SKINPATH .. 'oldsansblack.ttf', 32)
 
 style['goo panel'] = {
 	backgroundColor = {255,255,255},
@@ -30,15 +30,14 @@ style['goo close button'] = {
 	colorHover = {255,0,0}
 }
 
-style['button'] = {
+style['goo button'] = {
 	backgroundColor = {100,100,100},
 	backgroundColorHover = {131,203,21},
-	backgroundColorClick = {255,0,0,},
 	borderColor = {0,0,0,255},
 	borderColorHover = {0,0,0},
 	textColor = {255,255,255},
 	textColorHover = {255,255,255},
-	textFont = fonts.default24,
+	textFont = fonts.oldsans12
 }
 
 style['goo big button'] = {
@@ -56,7 +55,7 @@ style['goo text input'] = {
 	cursorColor = {0,0,0},
 	cursorWidth = 2,
 	borderWidth = 2,
-	textFont = fonts.oldsans24,
+	textFont = fonts.oldsans12,
 	blinkRate = 0.5,
 	leading = 35
 }
