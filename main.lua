@@ -191,7 +191,7 @@ panels[5] = function()
 	themeSwitch = true
 	function button:onClick()
 		if themeSwitch then
-			goo:setSkinAllObjects( 'dark' )
+			goo:setSkinAllObjects( 'black' )
 			themeSwitch = not themeSwitch
 		else
 			goo:setSkinAllObjects( 'default' )

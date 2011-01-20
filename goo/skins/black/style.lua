@@ -6,7 +6,7 @@
 local style = {}
 local fonts = {}
 fonts.default24 = love.graphics.newFont(24)
-fonts.oldsans12 = love.graphics.newFont('oldsansblack.ttf')
+fonts.oldsans12 = love.graphics.newFont('oldsansblack.ttf',12)
 fonts.oldsans24 = love.graphics.newFont('oldsansblack.ttf',24)
 fonts.oldsans32 = love.graphics.newFont('oldsansblack.ttf',32)
 
