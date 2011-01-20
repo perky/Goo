@@ -4,7 +4,6 @@
 -- Based on Unrealscript's stateful objects
 -----------------------------------------------------------------------------------
 
-require 'MiddleClass.lua'
 --[[ StatefulObject declaration
   * Stateful classes have a list of states (accesible through class.states).
   * When a method is invoked on an instance of such classes, it is first looked up on the class current state (accesible through class.currentState)

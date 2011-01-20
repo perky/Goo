@@ -51,13 +51,13 @@ function goo.textinput:draw(x,y)
 	
 	for i,txt in ipairs(self.lines) do
 		self:setColor( self.style.textColor )
-		love.graphics.print( txt, 5-self.textXoffset, (self.fontH)+(self.leading*(i-1)))
+		love.graphics.print( txt, 5-self.textXoffset, ( self.leading * (i-1) ) )
 	end
 	if self.blink and self.focus then
 		self:setColor( self.style.cursorColor )
 		local w = self.font:getWidth( self.lines[self.linePos]:sub(1,self.caretPos-1) )
 		w = math.min( w, self.w - 15 )
-		love.graphics.rectangle('fill', w+5, 2+(self.leading*(self.linePos-1)), self.style.cursorWidth, self.fontH)
+		love.graphics.rectangle('fill', w+5, 7+(self.leading*(self.linePos-1)), self.style.cursorWidth, self.fontH*0.7)
 	end
 	love.graphics.setScissor()
 end
@@ -200,9 +200,29 @@ function goo.textinput:setText( text )
 	end
 end
 
--- Getters Setters
-goo.textinput:getterSetter( 'multiline', false )
-goo.textinput:getterSetter( 'linePos', 1 )
-goo.textinput:getterSetter( 'caretPos', 1 )
+function goo.textinput:setMultiline( bool )
+	self.multiline = bool
+end
+
+function goo.textinput:getMultiline()
+	return self.multiline
+end
+
+function goo.textinput:setLinePos( linePos )
+	self.linePos = linePos
+end
+
+function goo.textinput:getLinePos()
+	return self.linePos
+end
+
+function goo.textinput:setCaretPos( caretPos )
+	self.caretPos = caretPos
+end
+
+function goo.textinput:getCaretPos()
+	return self.caretPos
+end
+
 
 return goo.textinput
