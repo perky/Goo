@@ -86,7 +86,7 @@ function goo.textinput:keyText(key,unicode)
 	self.caretPos = self.caretPos + 1
 end
 function goo.textinput:keyReturn()
-	if self.onkeyReturn then self:onKeyReturn() end
+	if self.onKeyReturn then self:onKeyReturn() end
 	if not self.multiline then return end
 	if self.caretPos > self.lines[self.linePos]:len() then
 		self.linePos = self.linePos + 1
